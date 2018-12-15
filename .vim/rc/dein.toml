@@ -1,0 +1,51 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'mileszs/ack.vim'
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+
+[[plugins]]
+repo = 'vim-scripts/FuzzyFinder'
+
+[[plugins]]
+repo = 'vim-scripts/L9'
+
+[[plugins]]
+repo = 'vim-scripts/taglist.vim'
+
+[[plugins]]
+repo = 'vim-scripts/SQLUtilities'
+
+[[plugins]]
+repo = 'othree/vim-autocomplpop'
+
+[[plugins]]
+repo = 'kevinw/pyflakes-vim'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 't9md/vim-quickhl'
+
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'rking/ag.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-brightest'
+
+[[plugins]]
+repo = 'thinca/vim-fontzoom'
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+
