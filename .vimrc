@@ -293,4 +293,11 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+" ============================================
+" easymotion
+" ============================================
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+nmap <Leader>s <Plug>(easymotion-s2)
+nmap <Space> <Plug>(easymotion-s2)
 
