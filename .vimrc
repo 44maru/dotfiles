@@ -5,8 +5,10 @@ set sw=4 "shiftwidth
 set expandtab "convert tab to space.
 set cursorline
 
-" Enable Alt + k as <M-k>
-execute "set <M-k>=\ek"
+" Enable Alt + m as <M-m>
+execute "set <M-m>=\em"
+" Enable Alt + f as <M-f>
+execute "set <M-f>=\ef"
 
 "retab command
 "if you set expandtab   --> convert tab to space.
@@ -83,7 +85,8 @@ nmap <Leader>w,    <C-w>,
 nnoremap <F3> g<C-]>
 " nnoremap <C-k> g<C-]>
 nnoremap <expr> <C-k> 'tab sp<CR>:tjump ' . expand("<cword>") . '<CR>'
-nnoremap <expr> <M-k> ':tab sp<CR>:tag ' . expand("<cfile>") . '<CR>'
+nnoremap <expr> <M-m> ':tab sp<CR>:tag ' . expand("<cword>") . '<CR>'
+nnoremap <expr> <M-f> ':tab sp<CR>:tag ' . expand("<cfile>") . '<CR>'
 
 "--- Insert mode ---
 "move
