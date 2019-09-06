@@ -48,8 +48,8 @@ vnoremap * "zy:let @/ = @z<CR>n
 nnoremap <C-l> $
 
 " tab jump
-nnoremap <C-n>t :<c-u>tabnext<CR>
-nnoremap <C-p>t :<c-u>tabprevious<CR>
+nnoremap <C-n> :<c-u>tabnext<CR>
+nnoremap <C-p> :<c-u>tabprevious<CR>
 nnoremap <S-Tab> gt
 nnoremap <Leader>t gt
 nnoremap <Leader>T gT
