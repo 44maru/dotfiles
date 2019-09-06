@@ -1,6 +1,7 @@
 #!/bin/bash 
 
 DOTFILES=(
+.gitconfig
 .tmux.conf
 .vimrc
 .zshrc
