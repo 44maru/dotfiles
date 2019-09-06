@@ -91,6 +91,12 @@ bindkey -e
 
 # move dir
 alias gd='dirs -v; echo -n "select number: "; read newdir; cd -"$newdir"'
+alias dstat-full='dstat -Tclmdrn'
+alias dstat-mem='dstat -Tclm'
+alias dstat-cpu='dstat -Tclr'
+alias dstat-net='dstat -Tclnd'
+alias dstat-disk='dstat -Tcldr'
+
 
 setopt prompt_subst
 
