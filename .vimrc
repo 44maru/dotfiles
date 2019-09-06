@@ -168,9 +168,10 @@ set t_Co=256
 set t_Sf=[3%dm
 set t_Sb=[4%dm
  
-hi Pmenu ctermbg=8
+hi Pmenu ctermbg=2
 hi PmenuSel ctermbg=12
 hi PmenuSbar ctermbg=0
+
 
 
 " ============================================
