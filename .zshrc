@@ -91,11 +91,11 @@ bindkey -e
 
 # move dir
 alias gd='dirs -v; echo -n "select number: "; read newdir; cd -"$newdir"'
-alias dstat-full='dstat -Tclmdrn'
-alias dstat-mem='dstat -Tclm'
-alias dstat-cpu='dstat -Tclr'
-alias dstat-net='dstat -Tclnd'
-alias dstat-disk='dstat -Tcldr'
+alias dstat-full='dstat -Ttclmdrns'
+alias dstat-mem='dstat -Ttclms'
+alias dstat-cpu='dstat -Ttclr'
+alias dstat-net='dstat -Ttclnd'
+alias dstat-disk='dstat -Ttcldrs'
 
 
 setopt prompt_subst
@@ -122,4 +122,10 @@ else
   RPROMPT="%{$fg_bold[white]%}[%{$reset_color%}%{$fg[cyan]%}%60<..<%~%{$reset_color%}%{$fg_bold[white]%}]%{$reset_color%}"
 fi
 }
+
+#-----------------------------------------------
+# Python setting
+#-----------------------------------------------
+export PYTHONUSERBASE=$HOME/local
+export PATH=$PATH:$HOME/local
 
