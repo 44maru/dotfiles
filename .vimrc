@@ -25,6 +25,13 @@ let mapleader = ";"
 set tags=tags;
 
 "===========================================
+" Encoding
+"===========================================
+set encoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileformats=unix,dos,mac
+
+"===========================================
 " Turn off beep sound.
 "===========================================
 set vb t_vb=
@@ -116,7 +123,7 @@ inoremap <C-o> <ESC>o
 " ------------------
 nnoremap <silent> <Leader>q :QuickRun
 nnoremap <silent> <Leader>e <C-w><C-w>:q<CR>
-let g:quickrun_config={'*': {'split': ''}}
+"let g:quickrun_config={'*': {'split': ''}}
 set splitbelow
 set splitright
 
