@@ -1,0 +1,2 @@
+inoremap <C-j> <ESC>
+noremap <C-l> $
