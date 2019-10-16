@@ -6,6 +6,7 @@ DOTFILES=(
 .vimrc
 .zshrc
 .vim
+.vrapperrc
 )
 
 function remove_dotfiles() {
