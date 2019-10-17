@@ -129,3 +129,10 @@ fi
 export PYTHONUSERBASE=$HOME/local
 export PATH=$PATH:$HOME/local
 
+#-----------------------------------------------
+# kubectl
+#-----------------------------------------------
+if [ -f /usr/bin/kubectl ]; then
+    source <(kubectl completion zsh)
+fi
+
