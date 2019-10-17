@@ -136,3 +136,5 @@ if [ -f /usr/bin/kubectl ]; then
     source <(kubectl completion zsh)
 fi
 
+alias kctl='kubectl'
+
