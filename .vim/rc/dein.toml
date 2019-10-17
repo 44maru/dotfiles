@@ -52,3 +52,11 @@ repo = 'junegunn/vim-easy-align'
 [[plugins]]
 repo = 'Lokaltog/vim-easymotion'
 
+[[plugins]]
+repo = 'Shougo/neocomplcache'
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
