@@ -106,6 +106,7 @@ nnoremap <expr> <M-f> ':tab sp<CR>:tag ' . expand("<cfile>") . '<CR>'
 "imap <C-a> <ESC>0i
 "escape
 inoremap <C-j> <ESC>
+snoremap <C-j> <ESC>
 "imap <C-S-f> <ESC>l<C-f>i
 "imap <C-S-b> <ESC>l<C-b>i
 
@@ -270,10 +271,16 @@ if dein#load_state(s:dein_dir)
   " 予め TOML ファイル（後述）を用意しておく
   let g:rc_dir    = expand('~/.vim/rc')
   let s:toml      = g:rc_dir . '/dein.toml'
+  let s:neo_toml  = g:rc_dir . '/dein.neo.toml'
   let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
   " TOML を読み込み、キャッシュしておく
   call dein#load_toml(s:toml,      {'lazy': 0})
+  
+  if has('lua')
+    call dein#load_toml(s:neo_toml,  {'lazy': 0})
+  endif
+
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
   " 設定終了
@@ -347,4 +354,37 @@ function! Autopep8()
     call Preserve(':silent %!autopep8 -')
 endfunction
 
+"----------------------------------------------------------
+" neocomplete or neocomplcacheの設定
+"----------------------------------------------------------
+if has('neocomplete.vim')
+    " Vim起動時にneocompleteを有効にする
+    let g:neocomplete#enable_at_startup = 1
+    " smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
+    let g:neocomplete#enable_smart_case = 1
+    " 3文字以上の単語に対して補完を有効にする
+    let g:neocomplete#min_keyword_length = 3
+    " 区切り文字まで補完する
+    let g:neocomplete#enable_auto_delimiter = 1
+    " 1文字目の入力から補完のポップアップを表示
+    let g:neocomplete#auto_completion_start_length = 1
+    " バックスペースで補完のポップアップを閉じる
+    inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
 
+else
+    let g:acp_enableAtStartup = 0
+    let g:neocomplcache_enable_at_startup = 1
+    let g:neocomplcache_enable_smart_case = 1
+    let g:neocomplcache_min_syntax_length = 3
+    let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+endif
+
+
+"----------------------------------------------------------
+" neosnippet
+"----------------------------------------------------------
+" エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定・・・・・・
+imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
+" タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・
+imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
