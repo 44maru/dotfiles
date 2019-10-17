@@ -20,9 +20,6 @@ repo = 'vim-scripts/taglist.vim'
 repo = 'vim-scripts/SQLUtilities'
 
 [[plugins]]
-repo = 'othree/vim-autocomplpop'
-
-[[plugins]]
 repo = 'kevinw/pyflakes-vim'
 
 [[plugins]]
