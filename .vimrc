@@ -25,6 +25,15 @@ let mapleader = ";"
 set tags=tags;
 
 "===========================================
+" Reload vimrc
+"===========================================
+augroup source-vimrc
+  autocmd!
+  autocmd BufWritePost *vimrc source $MYVIMRC | set foldmethod=marker
+augroup END
+
+
+"===========================================
 " Encoding
 "===========================================
 set encoding=utf-8
@@ -154,6 +163,7 @@ inoremap ^? ^H
 " vim color
 " ===========================================
 hi Search    ctermfg=black ctermbg=11
+hi Visual    ctermbg=9
  
 " ===========================================
 " vim diff color
