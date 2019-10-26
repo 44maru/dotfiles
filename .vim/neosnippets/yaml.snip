@@ -11,6 +11,10 @@ options     head
 			  image: ${3}
 			  ports:
 				- containerPort: ${4}
+			  env:
+				- name: ${5}
+				  value: ${6}
+			
 
 
 snippet     kubeRs
@@ -59,3 +63,63 @@ options     head
 					  image: ${5}
 					  ports:
 						- containerPort: ${6}
+
+
+snippet     kubeConfigMap
+abbr        k8s yaml ConfigMap
+options     head
+	apiVersion: v1
+	kind: ConfigMap
+	metadata:
+		name: ${1}
+	data:
+		${2}: ${3}
+
+
+snippet     env
+abbr        k8s yaml env
+	env:
+		- name: ${1}
+		  value: ${2}
+
+snippet     envFrom
+abbr        k8s yaml envFrom
+	envFrom:
+
+snippet     configMapRef
+abbr        k8s yaml configMapRef
+	configMapRef:
+		- name: ${1:configMapName}
+
+snippet     configMapKeyRef
+abbr        k8s yaml configMapKeyRef
+	configMapKeyRef:
+		name: ${1:configMapName}
+		key: ${2:key name in above configMap}
+
+
+snippet     volumeMounts
+abbr        k8s yaml volumeMounts
+	volumeMounts:
+		- name: ${1:volume-name}
+		  mountPath: ${2}
+
+
+snippet    volumes
+abbr        k8s yaml volumes from configMap key
+	volumes:
+		- name: ${1:volume-name}
+		  configMap:
+			name: ${2:configMap name}
+			items:
+				- key: ${3:key name in above configMap}
+				  path: ${4:mount file path}
+		
+
+snippet    volumes
+abbr        k8s yaml volumes from configMap all key
+	volumes:
+		- name: ${1:volume-name}
+		  configMap:
+			name: ${2:configMap name}
+		
