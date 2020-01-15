@@ -138,3 +138,23 @@ fi
 
 alias kctl='kubectl'
 
+#-----------------------------------------------
+# ghq(GO)
+#-----------------------------------------------
+export GHQPATH=$HOME/dev/go
+export PATH=$GHQPATH/bin:$PATH
+
+#-----------------------------------------------
+# ghq + peco
+#-----------------------------------------------
+function ghq-peco () {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N ghq-peco
+bindkey '^]' ghq-peco # ctrl + ]
+# TODO Fix escape code
