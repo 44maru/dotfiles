@@ -18,3 +18,5 @@
 	tool = vimdiff
 [mergetool]
 	prompt = false
+#[ghq]
+#    root = /home/m-nawata/dev/go/src
