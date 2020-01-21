@@ -100,14 +100,13 @@ alias dstat-disk='dstat -Ttcldrs'
 
 setopt prompt_subst
 
-#PROMPT='%B%{${fg[red]}%}[%n%{${fg[blue]}%}@%m${WINDOW:+":$WINDOW"}]%{%(?.$fg[blue].$fg[red])%}%(!.#.$)%{${reset_color}%}%b '
+PROMPT='%B%{${fg[red]}%}[%n%{${fg[blue]}%}@%m${WINDOW:+":$WINDOW"}]%{%(?.$fg[blue].$fg[red])%}%(!.#.$)%{${reset_color}%}%b '
 #RPROMPT='%{${fg[green]}%}[%(5~,%-1~/.../%2~,%~)] %{${fg[magenta]}%}%B%T%b%{${reset_color}%} $(parse_git_branch)'
 #SPROMPT="%B%r is correct? [n,y,a,e]:%b "
 
-PROMPT="%n@%m%% "
+#PROMPT="%n@%m%% "
 RPROMPT="[%~]"
 SPROMPT="correct: %R -> %r ? "
-
 
 typeset -ga chpwd_functions
 
