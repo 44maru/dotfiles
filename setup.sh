@@ -8,6 +8,7 @@ DOTFILES=(
 .vim
 .vrapperrc
 .lesskey
+.my_tools
 )
 
 function remove_dotfiles() {
