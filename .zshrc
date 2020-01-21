@@ -97,16 +97,29 @@ alias dstat-cpu='dstat -Ttclr'
 alias dstat-net='dstat -Ttclnd'
 alias dstat-disk='dstat -Ttcldrs'
 
-
+#-----------------------------------------------
+# Display Git branch on prompt
+#-----------------------------------------------
+# http://tkengo.github.io/blog/2013/05/12/zsh-vcs-info/
+autoload -Uz vcs_info
 setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+PROMPT='%B%{${fg[red]}%}[%n%{${fg[blue]}%}@%m${WINDOW:+":$WINDOW"}]%{%(?.$fg[blue].$fg[red])%}${vcs_info_msg_0_}%(!.#.$)%{${reset_color}%}%b '
 
-PROMPT='%B%{${fg[red]}%}[%n%{${fg[blue]}%}@%m${WINDOW:+":$WINDOW"}]%{%(?.$fg[blue].$fg[red])%}%(!.#.$)%{${reset_color}%}%b '
+#PROMPT='%B%{${fg[red]}%}[%n%{${fg[blue]}%}@%m${WINDOW:+":$WINDOW"}]%{%(?.$fg[blue].$fg[red])%}%(!.#.$)%{${reset_color}%}%b '
 #RPROMPT='%{${fg[green]}%}[%(5~,%-1~/.../%2~,%~)] %{${fg[magenta]}%}%B%T%b%{${reset_color}%} $(parse_git_branch)'
 #SPROMPT="%B%r is correct? [n,y,a,e]:%b "
+
 
 #PROMPT="%n@%m%% "
 RPROMPT="[%~]"
 SPROMPT="correct: %R -> %r ? "
+
 
 typeset -ga chpwd_functions
 
