@@ -65,11 +65,12 @@ autoload colors; colors
 # delete scp auto completion
 zstyle ':completion:*:complete:scp:*:files' command command -
 
-
-
-
-
-
+#-----------------------------------------------
+# alias
+#-----------------------------------------------
+alias ll='ls -alF --color'
+alias la='ls -A --color'
+alias ls='ls -CF --color'
 
 #-----------------------------------------------
 # vi-keys
