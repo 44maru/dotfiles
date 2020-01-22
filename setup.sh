@@ -30,10 +30,15 @@ function setup_lesskey() {
     lesskey
 }
 
+function add_exec_perm() {
+    chmod +x .my_tools/*
+}
+
 function main() {
     remove_dotfiles
     mk_dotfiles_link
     setup_lesskey
+    add_exec_perm
 }
 
 main
