@@ -93,10 +93,10 @@ bindkey -e
 # move dir
 alias gd='dirs -v; echo -n "select number: "; read newdir; cd -"$newdir"'
 alias dstat-full='dstat -Ttclmdrns'
-alias dstat-mem='dstat -Ttclms'
 alias dstat-cpu='dstat -Ttclr'
-alias dstat-net='dstat -Ttclnd'
-alias dstat-disk='dstat -Ttcldrs'
+alias dstat-mem='dstat -Ttclms'
+alias dstat-net='dstat -Ttcn --net-packets'
+alias dstat-disk='dstat -Ttcldrs --top-io --top-bio'
 
 #-----------------------------------------------
 # Display Git branch on prompt
