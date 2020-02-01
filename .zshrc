@@ -145,6 +145,7 @@ export PATH=$HOME/.my_tools:$PATH
 #-----------------------------------------------
 export PYTHONUSERBASE=$HOME/local
 export PATH=$PATH:$HOME/local/bin
+export PIPENV_VENV_IN_PROJECT=true
 
 #-----------------------------------------------
 # kubectl
