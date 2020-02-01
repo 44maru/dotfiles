@@ -12,7 +12,7 @@ hook_add = '''
     " 勝手に最初の候補を入力しない
     let g:jedi#popup_select_first = 0
     " docstringは表示しない
-    "autocmd FileType python setlocal completeopt-=preview
+    autocmd FileType python setlocal completeopt-=preview
 '''
 
 [[plugins]]
