@@ -1,6 +1,6 @@
 umask 022
 
-source $HOME/.bash_profile
+#source $HOME/.bash_profile
 
 #-----------------------------------------------
 # Base setting
@@ -72,6 +72,8 @@ alias ll='ls -alF --color'
 alias la='ls -A --color'
 alias ls='ls -CF --color'
 
+alias sourcezsh='source ~/.zshrc'
+
 #-----------------------------------------------
 # vi-keys
 #-----------------------------------------------
@@ -142,7 +144,7 @@ export PATH=$HOME/.my_tools:$PATH
 # Python setting
 #-----------------------------------------------
 export PYTHONUSERBASE=$HOME/local
-export PATH=$PATH:$HOME/local
+export PATH=$PATH:$HOME/local/bin
 
 #-----------------------------------------------
 # kubectl
