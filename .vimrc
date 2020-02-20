@@ -401,3 +401,9 @@ imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosni
 
 let g:neosnippet#snippets_directory='~/.vim/neosnippets'
 
+"----------------------------------------------------------
+" vim-brightest: カーソル下のハイライトを変更
+"----------------------------------------------------------
+let g:brightest#highlight = {
+\   "group"    : "DiffText",
+\}
