@@ -18,8 +18,15 @@ execute "set <M-f>=\ef"
 set hlsearch
 "set number
 
+"===================
+" Mouse ON/OFF
+"===================
+nnoremap m :set mouse=a<CR>
+nnoremap <S-m> :set mouse-=a<CR>
 "set mouse=a
 "set mouse=n
+
+
 let mapleader = ";"
 " ctags
 set tags=tags;
