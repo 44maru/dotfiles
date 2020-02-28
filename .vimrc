@@ -149,9 +149,15 @@ nnoremap <expr> <Leader>j ':<C-u>tabnew<CR>:tabmove<CR>:FufFile **/' . expand("<
 " ------------------
 " NERDTree
 " ------------------
-nnoremap <Leader>n :NERDTreeToggle<CR>
+"nnoremap <Leader>n :NERDTreeToggle<CR>
+" 新しいtabで開いたときにツリーを同期(vim-nerdtree-tabsプラグイン)
+nnoremap <Leader>n :NERDTreeTabsToggle<CR>
+" NERDTree内で、:Bookmaark コマンドで登録できる
 let NERDTreeShowBookmarks=1
-
+" Enterで新しいtabで開く
+let NERDTreeMapOpenInTab='<ENTER>'
+" Memo
+" Shift + i --> 隠しファイル表示
 
 " ------------------
 " back space effecte
