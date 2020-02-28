@@ -152,10 +152,30 @@ nnoremap <expr> <Leader>j ':<C-u>tabnew<CR>:tabmove<CR>:FufFile **/' . expand("<
 "nnoremap <Leader>n :NERDTreeToggle<CR>
 " 新しいtabで開いたときにツリーを同期(vim-nerdtree-tabsプラグイン)
 nnoremap <Leader>n :NERDTreeTabsToggle<CR>
+" 現在開いているファイルに移動してTreeを再表示
+nnoremap <Leader>N :CD<CR>:NERDTree<CR>
 " NERDTree内で、:Bookmaark コマンドで登録できる
 let NERDTreeShowBookmarks=1
 " Enterで新しいtabで開く
 let NERDTreeMapOpenInTab='<ENTER>'
+" マウスでツリー操作(set moues=aが事前に必要)
+let g:NERDTreeMouseMode=2
+
+" 現在開いているファイルに移動するためのコマンド定義
+command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>')
+function! s:ChangeCurrentDir(directory, bang)
+    if a:directory == ''
+        lcd %:p:h
+    else
+        execute 'lcd' . a:directory
+    endif
+
+    if a:bang == ''
+        pwd
+    endif
+endfunction
+
+
 " Memo
 " Shift + i --> 隠しファイル表示
 
