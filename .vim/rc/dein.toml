@@ -43,6 +43,9 @@ repo = 'rhysd/clever-f.vim'
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
+
+[[plugins]]
 repo = 'rking/ag.vim'
 
 [[plugins]]
