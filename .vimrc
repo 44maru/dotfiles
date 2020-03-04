@@ -440,3 +440,13 @@ let g:neosnippet#snippets_directory='~/.vim/neosnippets'
 let g:brightest#highlight = {
 \   "group"    : "DiffText",
 \}
+
+"----------------------------------------------------------
+" vim-autoformat
+" https://github.com/briemens/vim-autoformat
+"----------------------------------------------------------
+au BufWrite *.sh :Autoformat
+
+let g:formatdef_my_custom_sh = '"shfmt -i 4"'
+let g:formatters_sh = ['my_custom_sh']
+

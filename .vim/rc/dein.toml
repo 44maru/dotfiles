@@ -68,3 +68,7 @@ repo = 'Shougo/neosnippet.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'Chiel92/vim-autoformat'
+

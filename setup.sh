@@ -1,26 +1,24 @@
 #!/bin/bash
 
 DOTFILES=(
-.gitconfig
-.tmux.conf
-.vimrc
-.zshrc
-.vim
-.vrapperrc
-.lesskey
-.my_tools
+    .gitconfig
+    .tmux.conf
+    .vimrc
+    .zshrc
+    .vim
+    .vrapperrc
+    .lesskey
+    .my_tools
 )
 
 function remove_dotfiles() {
-    for dotfile in ${DOTFILES[@]}
-    do
+    for dotfile in ${DOTFILES[@]}; do
         rm -rf $HOME/$dotfile
     done
 }
 
 function mk_dotfiles_link() {
-    for dotfile in ${DOTFILES[@]}
-    do
+    for dotfile in ${DOTFILES[@]}; do
         ln -s $PWD/$dotfile $HOME/$dotfile
     done
 }
@@ -30,15 +28,16 @@ function setup_lesskey() {
     lesskey
 }
 
-function add_exec_perm() {
-    chmod +x .my_tools/*
+function install_python_modules() {
+    echo "install python modules"
+    pip3 install --user autopep8
 }
 
 function main() {
     remove_dotfiles
     mk_dotfiles_link
     setup_lesskey
-    add_exec_perm
+    install_python_modules
 }
 
 main

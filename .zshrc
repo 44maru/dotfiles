@@ -143,8 +143,8 @@ export PATH=$HOME/.my_tools:$PATH
 #-----------------------------------------------
 # Python setting
 #-----------------------------------------------
-export PYTHONUSERBASE=$HOME/local
-export PATH=$PATH:$HOME/local/bin
+export PYTHONUSERBASE=$HOME/.python
+export PATH=$PYTHONUSERBASE/bin:$PATH
 export PIPENV_VENV_IN_PROJECT=true
 
 #-----------------------------------------------
