@@ -446,7 +446,11 @@ let g:brightest#highlight = {
 " https://github.com/briemens/vim-autoformat
 "----------------------------------------------------------
 au BufWrite *.sh :Autoformat
+au BufWrite *.py :Autoformat
 
 let g:formatdef_my_custom_sh = '"shfmt -i 4"'
 let g:formatters_sh = ['my_custom_sh']
+
+let g:formatdef_autopep8 = '"autopep8 - --aggressive --aggressive"'
+let g:formatters_python = ['autopep8']
 
