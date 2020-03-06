@@ -1,8 +1,5 @@
 syntax on
 
-set ts=4 "tabstop
-set sw=4 "shiftwidth
-set expandtab "convert tab to space.
 set cursorline
 
 " Enable Alt + m as <M-m>
@@ -10,11 +7,27 @@ execute "set <M-m>=\em"
 " Enable Alt + f as <M-f>
 execute "set <M-f>=\ef"
 
+"===================
+" Indent
+"===================
 "retab command
 "if you set expandtab   --> convert tab to space.
 "if you set noexpandtab --> convert space to tab.
 
+set ts=4 "tabstop       タブを含むファイルを開いた際, タブを何文字の空白に変換するか
+set sw=4 "shiftwidth    自動インデントで入る空白数
+set et   "expandtab     convert tab to space.
 "set autoindent
+"
+" ファイルタイプの検索を有効にする
+filetype plugin on
+" ファイルタイプに合わせたインデントを利用
+filetype indent on
+
+" https://qiita.com/ymiyamae/items/06d0f5ce9c55e7369e1f
+" sw=softtabstop, sts=shiftwidth, ts=tabstop, et=expandtab
+autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
+
 set hlsearch
 "set number
 
