@@ -5,7 +5,8 @@
     st = status
     co = checkout
     cm = commit
-
+    diff1 = diff "HEAD^"
+    
 [user]
     name = 44maru
     email = hoge@exapmle.com
