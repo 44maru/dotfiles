@@ -32,6 +32,12 @@ set hlsearch
 "set number
 
 "===================
+" Register
+"===================
+" Paste from yank regsiter
+nnoremap P "0p
+
+"===================
 " Mouse ON/OFF
 "===================
 nnoremap m :set mouse=a<CR>
