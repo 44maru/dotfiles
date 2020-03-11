@@ -180,7 +180,10 @@ nnoremap <expr> <Leader>j ':<C-u>tabnew<CR>:tabmove<CR>:FufFile **/' . expand("<
 nnoremap <Leader>n :NERDTreeTabsToggle<CR>
 " 現在開いているファイルに移動してTreeを再表示
 nnoremap <Leader>N :CD<CR>:NERDTree<CR>
-" NERDTree内で、:Bookmaark コマンドで登録できる
+
+" vim起動時にツリーを表示
+let g:nerdtree_tabs_open_on_console_startup=1
+" NERDTree内で、:Bookmark コマンドで登録できる
 let NERDTreeShowBookmarks=1
 " Enterで新しいtabで開く
 let NERDTreeMapOpenInTab='<ENTER>'
