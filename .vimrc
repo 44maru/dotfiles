@@ -169,8 +169,13 @@ set splitright
 " ------------------
 nnoremap <silent> <Leader>ff :<C-u>tabnew<CR>:tabmove<CR>:FufFile **/<CR>
 nnoremap <expr> <Leader>j ':<C-u>tabnew<CR>:tabmove<CR>:FufFile **/' . expand("<cword>") . '<CR>'
-"nnoremap <silent> <Leader>ff :FufFile **/<CR>
-"nnoremap <silent> ;ff :FuzzyFinderFile<CR> " old fuzzyfinder
+xnoremap <Leader>j :call <SID>search_file()<CR>
+
+function! s:search_file()
+  silent normal gv"zy
+  silent execute ":tabnew"
+  silent execute ":FufFile **/" . @z
+endfunction
 
 " ------------------
 " NERDTree
