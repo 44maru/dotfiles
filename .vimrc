@@ -484,9 +484,9 @@ let g:formatters_python = ['autopep8']
 "----------------------------------------------------------
 " TagList ON/OFF
 nnoremap <Leader>t :Tlist<CR>
-" タグに色をつける
-let Tlist_Auto_Open = 1
 " TagListをVim起動時に開く
+"let Tlist_Auto_Open = 1
+" タグに色をつける
 let Tlist_Auto_Highlight_Tag = 0
 " 新規ファイルを開いた時に自動的にタグリストに追加する
 let Tlist_Auto_Update = 1
