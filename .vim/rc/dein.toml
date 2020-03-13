@@ -74,3 +74,6 @@ repo = 'Chiel92/vim-autoformat'
 
 [[plugins]]
 repo = 'vim-scripts/taglist.vim'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
