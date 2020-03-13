@@ -72,3 +72,5 @@ repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
 repo = 'Chiel92/vim-autoformat'
 
+[[plugins]]
+repo = 'vim-scripts/taglist.vim'
