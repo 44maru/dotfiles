@@ -77,3 +77,4 @@ repo = 'vim-scripts/taglist.vim'
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
+rev = 'aef88ca'
