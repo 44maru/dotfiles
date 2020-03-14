@@ -6,6 +6,8 @@ set cursorline
 execute "set <M-m>=\em"
 " Enable Alt + f as <M-f>
 execute "set <M-f>=\ef"
+" Enable Alt + w as <M-w>
+execute "set <M-w>=\ew"
 
 "===================
 " Indent
@@ -100,12 +102,11 @@ nnoremap <C-p> :<c-u>tabprevious<CR>
 nnoremap * *N
 nnoremap # #n
 
-" window jump
-nnoremap <Leader>ww <C-w>w
-nnoremap <Leader>wh <C-w>wh
-nnoremap <Leader>wk <C-w>wk
-nnoremap <Leader>wj <C-w>wj
-nnoremap <Leader>wl <C-w>wl
+"-----------------------
+" Window split
+"-----------------------
+" window jump prefix (Alt + w)
+nnoremap <M-w> <C-w>
 
 " window size vertical
 nmap <C-w>- <C-w>-<C-w>
