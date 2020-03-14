@@ -452,10 +452,16 @@ endif
 "----------------------------------------------------------
 " neosnippet
 "----------------------------------------------------------
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
 " エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定・・・・・・
+" なぜかvimrcをリロードしないと有効にならない
 imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
 " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・
 imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+smap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 
 let g:neosnippet#snippets_directory='~/.vim/neosnippets'
 
@@ -541,3 +547,5 @@ let Tlist_Use_SingleClick = 1
 let Tlist_WinHeight = 20
 " 画面を左右に分割した場合の、タグ画面の初期幅
 let Tlist_WinWidth = 40
+
+

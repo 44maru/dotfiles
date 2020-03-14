@@ -1,0 +1,25 @@
+snippet     binbash
+abbr        #!/bin/bash
+options     head
+    #!/bin/bash
+
+
+
+snippet     fori
+abbr        for loop
+options     head
+	for ${1:i} in ${2}
+    do
+		${3}
+    done
+
+
+
+snippet     test
+abbr        [] |&
+options     head
+    [ ${1} ] ${2:||} { 
+		${3}
+    }
+
+
