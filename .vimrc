@@ -124,7 +124,7 @@ nmap <Leader>w,    <C-w>,
 " nnoremap <F3> <C-]>
 nnoremap <F3> g<C-]>
 " nnoremap <C-k> g<C-]>
-nnoremap <expr> <C-k> 'tab sp<CR>:tjump ' . expand("<cword>") . '<CR>'
+nnoremap <expr> <C-k> ':tab sp<CR>:tjump ' . expand("<cword>") . '<CR>'
 nnoremap <expr> <M-m> ':tab sp<CR>:tag ' . expand("<cword>") . '<CR>'
 nnoremap <expr> <M-f> ':tab sp<CR>:tag ' . expand("<cfile>") . '<CR>'
 
