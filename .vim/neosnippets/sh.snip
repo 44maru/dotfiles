@@ -8,11 +8,18 @@ options     head
 snippet     fori
 abbr        for loop
 options     head
-	for ${1:i} in ${2}
+    for ${1:i} in ${2}
     do
 		${3}
     done
 
+
+snippet     functio
+abbr        function(){}
+options     head
+    function ${1:method_name}() {
+		${2}
+    }
 
 
 snippet     test
