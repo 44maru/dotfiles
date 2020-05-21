@@ -68,7 +68,7 @@ zstyle ':completion:*:complete:scp:*:files' command command -
 #-----------------------------------------------
 # alias
 #-----------------------------------------------
-alias ll='ls -alF --color'
+alias ll='ls -lF --color'
 alias la='ls -A --color'
 alias ls='ls -CF --color'
 
