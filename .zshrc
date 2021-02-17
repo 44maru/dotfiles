@@ -72,6 +72,8 @@ alias ll='ls -lF --color'
 alias la='ls -A --color'
 alias ls='ls -CF --color'
 
+alias grep='grep --color'
+
 alias sourcezsh='source ~/.zshrc'
 
 #-----------------------------------------------
