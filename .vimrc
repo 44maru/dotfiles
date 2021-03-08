@@ -8,6 +8,8 @@ execute "set <M-m>=\em"
 execute "set <M-f>=\ef"
 " Enable Alt + w as <M-w>
 execute "set <M-w>=\ew"
+" Enable Alt + n as <M-n>
+execute "set <M-n>=\en"
 
 "===================
 " Indent
@@ -183,6 +185,8 @@ endfunction
 nnoremap <Leader>n :NERDTreeTabsToggle<CR>
 " 現在開いているファイルに移動してTreeを再表示
 nnoremap <Leader>N :CD<CR>:NERDTree<CR>
+" Tree内の現在開いているファイルへカーソル移動
+nnoremap <M-n> :NERDTreeFind<CR>
 
 " vim起動時にツリーを表示
 let g:nerdtree_tabs_open_on_console_startup=1
