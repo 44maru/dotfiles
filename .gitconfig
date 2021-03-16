@@ -11,6 +11,9 @@
     name = 44maru
     email = hoge@exapmle.com
 
+[push]
+    default = current
+
 [color]
     ui = true
 [diff]
