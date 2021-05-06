@@ -167,15 +167,17 @@ set splitright
 " ------------------
 " fuzzy finder
 " ------------------
-nnoremap <silent> <Leader>ff :<C-u>tabnew<CR>:tabmove<CR>:FufFile **/<CR>
-nnoremap <expr> <Leader>j ':<C-u>tabnew<CR>:tabmove<CR>:FufFile **/' . expand("<cword>") . '<CR>'
+nnoremap <silent> <Leader>ff :<C-u>tabnew<CR>:NERDTreeClose<CR>:FufFile **/<CR>
+nnoremap <expr> <Leader>j ':<C-u>tabnew<CR>:NERDTreeClose<CR>:FufFile **/' . expand("<cword>") . '<CR>'
 xnoremap <Leader>j :call <SID>search_file()<CR>
 
 function! s:search_file()
   silent normal gv"zy
   silent execute ":tabnew"
+  silent execute ":NERDTreeClose"
   silent execute ":FufFile **/" . @z
 endfunction
+
 
 " ------------------
 " NERDTree
