@@ -103,6 +103,19 @@ alias dstat-net='dstat -Ttcn --net-packets'
 alias dstat-disk='dstat -Ttcldrs --top-io --top-bio'
 
 #-----------------------------------------------
+# Get git file remote url
+#-----------------------------------------------
+function giturl() {
+    local filename=$1
+    local git_top_dir=`git rev-parse --show-superproject-working-tree --show-toplevel | head -1`
+    local git_pj_url=`git remote -v | head -n1 | awk '{print $2}' | sed 's/.git$//'`
+    local path_under_top_dir=`echo $PWD | sed "s%$git_top_dir%%"`
+    local current_branch=`git symbolic-ref --short HEAD`
+    echo $git_pj_url/-/blob/$current_branch/$path_under_top_dir/$filename
+}
+
+
+#-----------------------------------------------
 # Display Git branch on prompt
 #-----------------------------------------------
 # http://tkengo.github.io/blog/2013/05/12/zsh-vcs-info/
