@@ -111,7 +111,10 @@ function giturl() {
     local git_pj_url=`git remote -v | head -n1 | awk '{print $2}' | sed 's/.git$//'`
     local path_under_top_dir=`echo $PWD | sed "s%$git_top_dir%%"`
     local current_branch=`git symbolic-ref --short HEAD`
-    echo $git_pj_url/-/blob/$current_branch/$path_under_top_dir/$filename
+    local url=$git_pj_url/-/blob/$current_branch/$path_under_top_dir/$filename
+    echo $url
+    test -f /usr/bin/xsel && echo $url | xsel -bi
+
 }
 
 
