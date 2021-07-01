@@ -180,6 +180,9 @@ alias kc='kubectl'
 export GHQPATH=$HOME/dev/go
 export PATH=$GHQPATH/bin:$PATH
 
+# .gitconfigに環境変数を直接書けないので.zshrcでコマンド実行
+git config --global ghq.root $HOME/dev/go/src
+
 #-----------------------------------------------
 # peco + ghq
 #-----------------------------------------------
