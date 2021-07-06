@@ -49,6 +49,12 @@ nnoremap <S-m> :set mouse-=a<CR>
 "set mouse=a
 "set mouse=n
 
+"===============================================
+" get gitlab url of current edit file
+"===============================================
+" need copy ~/.zshrc to ~/.zshenv to execute user custom command.
+nnoremap <expr> <C-g> ':!giturl ' . expand("%") . '<CR>'
+
 
 let mapleader = ";"
 " ctags
