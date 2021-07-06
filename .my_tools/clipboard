@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Required on kitty session
+# and set preference : Terminal > Remote-controlled > Windows clipboard 
+
+# TODO
+# add executable permission to this file
+
+echo -ne '\e''[5i'
+cat -
+echo -ne '\e''[4i'
