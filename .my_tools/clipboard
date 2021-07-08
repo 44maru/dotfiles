@@ -17,3 +17,4 @@ else
   echo -ne "\033Ptmux;\033\033[5i$line\033\033[4i\033\\"
 fi
 
+echo "$line"
