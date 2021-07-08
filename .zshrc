@@ -112,11 +112,20 @@ function giturl() {
     local path_under_top_dir=`echo $PWD | sed "s%$git_top_dir%%"`
     local current_branch=`git symbolic-ref --short HEAD`
     local url=$git_pj_url/-/blob/$current_branch/$path_under_top_dir/$filename
-    echo $url
+    echo $url | clipboard
     test -f /usr/bin/xsel && echo $url | xsel -bi
-
 }
 
+function githuburl() {
+    local filename=$1
+    local git_top_dir=`git rev-parse --show-superproject-working-tree --show-toplevel | head -1`
+    local git_pj_url=`git remote -v | head -n1 | awk '{print $2}' | sed 's/.git$//'`
+    local path_under_top_dir=`echo $PWD | sed "s%$git_top_dir%%"`
+    local current_branch=`git symbolic-ref --short HEAD | sed 's%heads/%%'`
+    local url=$git_pj_url/blob/$current_branch/$path_under_top_dir/$filename
+    echo $url | clipboard
+    test -f /usr/bin/xsel && echo $url | xsel -bi
+}
 
 #-----------------------------------------------
 # Display Git branch on prompt
