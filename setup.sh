@@ -1,15 +1,6 @@
 #!/bin/bash
 
-DOTFILES=(
-    .gitconfig
-    .tmux.conf
-    .vimrc
-    .zshrc
-    .vim
-    .vrapperrc
-    .lesskey
-    .my_tools
-)
+DOTFILES=$(ls -d .?* | grep -v "\.git$" | grep -v "^\.$" | grep -v "^\.\.$" | grep -v "\.swp$")
 
 function remove_dotfiles() {
     for dotfile in ${DOTFILES[@]}; do
