@@ -11,6 +11,8 @@ execute "set <M-w>=\ew"
 " Enable Alt + n as <M-n>
 execute "set <M-n>=\en"
 
+let mapleader = ";"
+
 "===================
 " Indent
 "===================
@@ -55,8 +57,6 @@ nnoremap <S-m> :set mouse-=a<CR>
 " need copy ~/.zshrc to ~/.zshenv to execute user custom command.
 nnoremap <expr> <Leader>g ':!giturl ' . expand("%") . '<CR>'
 
-
-let mapleader = ";"
 " ctags
 set tags=tags;
 
