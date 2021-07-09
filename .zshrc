@@ -127,11 +127,6 @@ function githuburl() {
     test -f /usr/bin/xsel && echo $url | xsel -bi
 }
 
-function tsh() {
-    # tmuxセッションでsshした場合に、ssh先でclipboardが正しく機能させるためにTMUX環境変数を引き継ぐ
-    ssh "$@" -t "TMUX=$TMUX SHELL=/bin/zsh zsh"
-}
-
 #-----------------------------------------------
 # Display Git branch on prompt
 #-----------------------------------------------
