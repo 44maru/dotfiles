@@ -239,4 +239,4 @@ function peco-cdr () {
 zle -N peco-cdr
 bindkey '^W' peco-cdr
 
-source .zshrc_func
+source ~/.zshrc_func
