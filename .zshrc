@@ -74,7 +74,14 @@ alias ls='ls -CF --color'
 
 alias grep='grep --color'
 
+alias vimzsh='vim ~/.zshrc'
 alias sourcezsh='source ~/.zshrc'
+
+alias gs='git status'
+alias ga='git add'
+alias gm='git commit'
+alias gp='git push'
+alias gc='git clean -f .'
 
 #-----------------------------------------------
 # vi-keys
