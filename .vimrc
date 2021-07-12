@@ -56,6 +56,7 @@ nnoremap <S-m> :set mouse-=a<CR>
 "===============================================
 " need copy ~/.zshrc to ~/.zshenv to execute user custom command.
 nnoremap <expr> <Leader>g ':!giturl ' . expand("%") . '<CR>'
+nnoremap <expr> <Leader>G ':!githuburl ' . expand("%") . '<CR>'
 
 " ctags
 set tags=tags;
