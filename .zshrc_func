@@ -1,6 +1,12 @@
 #-----------------------------------------------
 # Get git file remote url
 #-----------------------------------------------
+function gitcloneurl() {
+    local url=`git remote -v | head -n1 | awk '{print $2}'`
+    echo $url | clipboard
+    test -f /usr/bin/xsel && echo $url | xsel -bi
+}
+
 function giturl() {
     local filename=$1
     local git_top_dir=`git rev-parse --show-superproject-working-tree --show-toplevel | head -1`
