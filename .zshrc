@@ -78,6 +78,7 @@ alias vimzsh='vim ~/.zshrc'
 alias sourcezsh='source ~/.zshrc'
 
 alias gs='git status'
+alias gd='git diff'
 alias ga='git add'
 alias gm='git commit'
 alias gp='git push'
@@ -102,7 +103,7 @@ bindkey "^[[3~" delete-char # Del
 bindkey -e
 
 # move dir
-alias gd='dirs -v; echo -n "select number: "; read newdir; cd -"$newdir"'
+#alias gd='dirs -v; echo -n "select number: "; read newdir; cd -"$newdir"'
 alias dstat-full='dstat -Ttclmdrns'
 alias dstat-cpu='dstat -Ttclr'
 alias dstat-mem='dstat -Ttclms'
