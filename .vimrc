@@ -41,7 +41,7 @@ set hlsearch
 " Register
 "===================
 " Paste from yank regsiter
-nnoremap P "0p
+"nnoremap P "0p
 
 "===================
 " Mouse ON/OFF
@@ -115,7 +115,7 @@ nnoremap # #n
 " Window split
 "-----------------------
 " window jump prefix (Alt + w)
-nnoremap <M-w> <C-w>
+nnoremap <M-w> <C-w>w
 
 " window size vertical
 nmap <C-w>- <C-w>-<C-w>
