@@ -246,5 +246,22 @@ function peco-cdr () {
 }
 zle -N peco-cdr
 bindkey '^W' peco-cdr
+" TODO 下記のようにctrl+space(ctrl+v -> ctrl+spaceで入力)で実行できるようにする
+"bindkey '^@' peco-cdr
+
+
+#-----------------------------------------------
+# ctrl + o で親のdirectoryへ移動
+#-----------------------------------------------
+# hook関数precmd実行(gitのstatusバーなどを同期)
+__call_precmds() {
+  type precmd > /dev/null 2>&1 && precmd
+  for __pre_func in $precmd_functions; do $__pre_func; done
+}
+
+#ctrl+oで親ディレクトリへ
+__cd_up()   { builtin cd ..; echo "\r\n"; __call_precmds; zle reset-prompt }
+zle -N __cd_up;   bindkey '^o' __cd_up
+
 
 source ~/.zshrc_func
