@@ -246,8 +246,8 @@ function peco-cdr () {
 }
 zle -N peco-cdr
 bindkey '^W' peco-cdr
-" TODO 下記のようにctrl+space(ctrl+v -> ctrl+spaceで入力)で実行できるようにする
-"bindkey '^@' peco-cdr
+# TODO 下記のようにctrl+space(ctrl+v -> ctrl+spaceで入力)で実行できるようにする
+#bindkey '^@' peco-cdr
 
 
 #-----------------------------------------------
