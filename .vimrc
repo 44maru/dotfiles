@@ -103,8 +103,11 @@ vnoremap * "zy:let @/ = @z<CR>n
 nnoremap <C-l> $
 
 " tab jump
-nnoremap <C-n> :<c-u>tabnext<CR>
-nnoremap <C-p> :<c-u>tabprevious<CR>
+"nnoremap <C-n> :<c-u>tabnext<CR>
+"nnoremap <C-p> :<c-u>tabprevious<CR>
+" buffer jump
+nnoremap <C-n> :bn<CR>
+nnoremap <C-p> :bp<CR>
 "nnoremap <Leader>tn :tabnew<CR>
 
 " search word
@@ -135,9 +138,9 @@ nmap <Leader>w,    <C-w>,
 " nnoremap <F3> <C-]>
 nnoremap <F3> g<C-]>
 " nnoremap <C-k> g<C-]>
-nnoremap <expr> <C-k> ':tab sp<CR>:tjump ' . expand("<cword>") . '<CR>'
-nnoremap <expr> <M-m> ':tab sp<CR>:tag ' . expand("<cword>") . '<CR>'
-nnoremap <expr> <M-f> ':tab sp<CR>:tag ' . expand("<cfile>") . '<CR>'
+nnoremap <expr> <C-k> ':tjump ' . expand("<cword>") . '<CR>'
+nnoremap <expr> <M-m> ':tag ' . expand("<cword>") . '<CR>'
+nnoremap <expr> <M-f> ':tag ' . expand("<cfile>") . '<CR>'
 
 "--- Insert mode ---
 "move
@@ -176,13 +179,12 @@ set splitright
 " ------------------
 " fuzzy finder
 " ------------------
-nnoremap <silent> <Leader>ff :<C-u>tabnew<CR>:NERDTreeClose<CR>:FufFile **/<CR>
-nnoremap <expr> <Leader>j ':<C-u>tabnew<CR>:NERDTreeClose<CR>:FufFile **/' . expand("<cword>") . '<CR>'
+nnoremap <silent> <Leader>ff :NERDTreeClose<CR>:FufFile **/<CR>
+nnoremap <expr> <Leader>j ':NERDTreeClose<CR>:FufFile **/' . expand("<cword>") . '<CR>'
 xnoremap <Leader>j :call <SID>search_file()<CR>
 
 function! s:search_file()
   silent normal gv"zy
-  silent execute ":tabnew"
   silent execute ":NERDTreeClose"
   silent execute ":FufFile **/" . @z
 endfunction
@@ -204,7 +206,7 @@ let g:nerdtree_tabs_open_on_console_startup=1
 " NERDTree内で、:Bookmark コマンドで登録できる
 let NERDTreeShowBookmarks=1
 " Enterで新しいtabで開く
-let NERDTreeMapOpenInTab='<ENTER>'
+"let NERDTreeMapOpenInTab='<ENTER>'
 " マウスでツリー操作(set moues=aが事前に必要)
 let g:NERDTreeMouseMode=2
 
@@ -380,7 +382,7 @@ endif
 " Ag
 " ============================================
 let g:ackprg = "ag --nogroup --nocolor --column"
-nnoremap <expr> <C-h> ':<C-u>tabnew<CR>:Ack ' . expand("<cword>") . '<CR>'
+nnoremap <expr> <C-h> ':Ack ' . expand("<cword>") . '<CR>'
 
 " For pyflakes color
 highlight clear SpellBad
