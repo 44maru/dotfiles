@@ -78,3 +78,9 @@ repo = 'vim-scripts/taglist.vim'
 [[plugins]]
 repo = 'cohama/lexima.vim'
 rev = 'aef88ca'
+
+[[plugins]]
+repo = 'jeetsukumaran/vim-buffergator'
+
+[[plugins]]
+repo = 'ap/vim-buftabline'
