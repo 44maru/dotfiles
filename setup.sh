@@ -19,6 +19,12 @@ function setup_lesskey() {
     lesskey
 }
 
+function mk_zshenv() {
+    cd $HOME
+    ln -sf .zshrc .zshenv
+}
+
+
 function install_python_modules() {
     echo "install python modules"
     pip3 install --user autopep8
@@ -27,6 +33,7 @@ function install_python_modules() {
 function main() {
     remove_dotfiles
     mk_dotfiles_link
+    mk_zshenv
     setup_lesskey
     install_python_modules
 }
