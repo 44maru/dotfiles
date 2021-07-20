@@ -46,7 +46,7 @@ set hlsearch
 "===================
 " Mouse ON/OFF
 "===================
-nnoremap m :set mouse=a<CR>:set
+nnoremap m :set mouse=a<CR>
 nnoremap <S-m> :set mouse-=a<CR> 
 "set mouse=a
 "set mouse=n
