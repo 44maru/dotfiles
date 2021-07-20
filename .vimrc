@@ -46,10 +46,12 @@ set hlsearch
 "===================
 " Mouse ON/OFF
 "===================
-nnoremap m :set mouse=a<CR>
-nnoremap <S-m> :set mouse-=a<CR>
+nnoremap m :set mouse=a<CR>:set
+nnoremap <S-m> :set mouse-=a<CR> 
 "set mouse=a
 "set mouse=n
+" mouse ON時に、windowを幅をマウスで調整するには下記設定が必要
+set ttymouse=xterm2
 
 "===============================================
 " get gitlab url of current edit file
