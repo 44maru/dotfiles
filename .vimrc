@@ -108,7 +108,7 @@ nnoremap <C-l> $
 " buffer jump
 nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
-"nnoremap <Leader>tn :tabnew<CR>
+nnoremap Q :bp<bar>bd #<CR>
 
 " search word
 "nnoremap * *zz
