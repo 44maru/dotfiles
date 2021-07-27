@@ -101,7 +101,7 @@ vnoremap * "zy:let @/ = @z<CR>n
 
 "--- normal mode ---
 nnoremap <C-l> $
-nnoremap <Leader>T :cd %:h<CR>:term<CR>
+nnoremap tt :cd %:h<CR>:term<CR>
 
 "--- search word ---
 nnoremap * *N
