@@ -99,8 +99,9 @@ let &t_te.="\e[0 q"
 "--- vidual mode ---
 vnoremap * "zy:let @/ = @z<CR>n
 
-"--- edit mode ---
+"--- normal mode ---
 nnoremap <C-l> $
+nnoremap <Leader>T :cd %:h<CR>:term<CR>
 
 "--- search word ---
 nnoremap * *N
