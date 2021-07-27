@@ -102,19 +102,17 @@ vnoremap * "zy:let @/ = @z<CR>n
 "--- edit mode ---
 nnoremap <C-l> $
 
-" tab jump
-"nnoremap <C-n> :<c-u>tabnext<CR>
-"nnoremap <C-p> :<c-u>tabprevious<CR>
-" buffer jump
+"--- search word ---
+nnoremap * *N
+nnoremap # #n
+
+"-----------------
+" buffer
+"-----------------
+set hidden
 nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
 nnoremap Q :bp<bar>bd #<CR>
-
-" search word
-"nnoremap * *zz
-"nnoremap # #zz
-nnoremap * *N
-nnoremap # #n
 
 "-----------------------
 " Window split
