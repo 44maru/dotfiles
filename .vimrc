@@ -60,9 +60,6 @@ set ttymouse=xterm2
 nnoremap <expr> <Leader>g ':!giturl ' . expand("%") . '<CR>'
 nnoremap <expr> <Leader>G ':!githuburl ' . expand("%") . '<CR>'
 
-" ctags
-set tags=tags;
-
 "===========================================
 " Reload vimrc
 "===========================================
@@ -133,10 +130,12 @@ nmap <C-w>. <C-w>><C-w>
 nmap <Leader>w.    <C-w>.
 nmap <Leader>w,    <C-w>,
 
+"-----------------------
+" ctags
+"-----------------------
+set tags=tags;
 " ctags as like eclipse
-" nnoremap <F3> <C-]>
 nnoremap <F3> g<C-]>
-" nnoremap <C-k> g<C-]>
 nnoremap <expr> <C-k> ':tjump ' . expand("<cword>") . '<CR>'
 nnoremap <expr> <M-m> ':tag ' . expand("<cword>") . '<CR>'
 nnoremap <expr> <M-f> ':tag ' . expand("<cfile>") . '<CR>'
