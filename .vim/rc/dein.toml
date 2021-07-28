@@ -73,9 +73,6 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'Chiel92/vim-autoformat'
 
 [[plugins]]
-repo = 'vim-scripts/taglist.vim'
-
-[[plugins]]
 repo = 'cohama/lexima.vim'
 rev = 'aef88ca'
 
