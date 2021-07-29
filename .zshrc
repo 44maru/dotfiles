@@ -80,8 +80,10 @@ alias sourcezsh='source ~/.zshrc'
 alias gs='git status'
 alias gd='git diff'
 alias ga='git add'
-alias gm='git commit'
+alias gm='git commit -m'
 alias gp='git push'
+alias gpl='git pull'
+alias gr='git restor'
 alias gc='git clean -f .'
 
 #-----------------------------------------------
