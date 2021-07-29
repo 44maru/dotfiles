@@ -20,8 +20,7 @@ export HISTSIZE=100000 HISTFILE=~/.zsh_history SAVEHIST=100000
 export TERM=xterm-color
 
 
-export WORDCHARS='*?[]~=&;!#$%^(){}<>'
-
+export WORDCHARS='*e
 #-----------------------------------------------
 # option
 #-----------------------------------------------
@@ -83,7 +82,7 @@ alias ga='git add'
 alias gm='git commit -m'
 alias gp='git push'
 alias gpl='git pull'
-alias gr='git restor'
+alias gr='git restore'
 alias gc='git clean -f .'
 
 #-----------------------------------------------
