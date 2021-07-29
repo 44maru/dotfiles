@@ -57,8 +57,8 @@ set ttymouse=xterm2
 " get gitlab url of current edit file
 "===============================================
 " need copy ~/.zshrc to ~/.zshenv to execute user custom command.
-nnoremap <expr> <Leader>g ':!giturl ' . expand("%") . '<CR>'
-nnoremap <expr> <Leader>G ':!githuburl ' . expand("%") . '<CR>'
+nnoremap <expr> <Leader>g ':lcd %:h<CR>:!giturl ' . expand("%") . '<CR>'
+nnoremap <expr> <Leader>G ':lcd %:h<CR>:!githuburl ' . expand("%") . '<CR>'
 
 "===========================================
 " Reload vimrc
@@ -98,7 +98,7 @@ vnoremap * "zy:let @/ = @z<CR>n
 
 "--- normal mode ---
 nnoremap <C-l> $
-nnoremap tt :cd %:h<CR>:term<CR>
+nnoremap tt :lcd %:h<CR>:term<CR>
 
 "--- search word ---
 nnoremap * *N
@@ -563,4 +563,10 @@ let Tlist_WinHeight = 20
 " 画面を左右に分割した場合の、タグ画面の初期幅
 let Tlist_WinWidth = 40
 
+"--------------------
+" lexima.vim
+"--------------------
+" クォーテーション入力時の閉じクォートの自動補完を無効化
+call lexima#add_rule({'char': '"', 'input_after': ''})
+call lexima#add_rule({'char': "'", 'input_after': ""})
 
