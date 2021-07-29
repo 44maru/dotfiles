@@ -570,3 +570,10 @@ let Tlist_WinWidth = 40
 call lexima#add_rule({'char': '"', 'input_after': ''})
 call lexima#add_rule({'char': "'", 'input_after': ""})
 
+" カッコやクォーテーションの閉じる側直前でtabキーで外側に移動
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#)', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#"', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#`', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
