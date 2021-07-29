@@ -20,7 +20,7 @@ export HISTSIZE=100000 HISTFILE=~/.zsh_history SAVEHIST=100000
 export TERM=xterm-color
 
 
-export WORDCHARS='*e
+export WORDCHARS='*?[]~=&;!#$%^(){}<>'
 #-----------------------------------------------
 # option
 #-----------------------------------------------
