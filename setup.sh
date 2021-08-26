@@ -24,9 +24,17 @@ function install_python_modules() {
   pip3 install --user autopep8
 }
 
+function mk_ssh_config() {
+  cat <<EOF >.ssh/config
+ControlMaster auto
+ControlPath ~/.ssh/tmp/ssh_mux_%h_%p_%r
+EOF
+}
+
 function main() {
   remove_dotfiles
   mk_dotfiles_link
+  mk_ssh_config
   setup_lesskey
   install_python_modules
 }
