@@ -81,3 +81,6 @@ repo = 'jeetsukumaran/vim-buffergator'
 
 [[plugins]]
 repo = 'ap/vim-buftabline'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
