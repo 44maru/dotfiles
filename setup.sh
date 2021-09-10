@@ -25,7 +25,7 @@ function install_python_modules() {
 }
 
 function install_ghq() {
-  test -e /usr/bin/go || {
+  test -e /usr/bin/go && {
     echo "install ghq"
     go get github.com/motemen/ghq
   }
