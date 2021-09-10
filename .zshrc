@@ -1,6 +1,7 @@
 umask 022
 
-#source $HOME/.bash_profile
+# disable diplay lock by ctrl+s
+stty stop undef
 
 #-----------------------------------------------
 # Base setting
