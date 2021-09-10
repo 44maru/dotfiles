@@ -24,6 +24,13 @@ function install_python_modules() {
   pip3 install --user autopep8
 }
 
+function install_ghq() {
+  test -e /usr/bin/go || {
+    echo "install ghq"
+    go get github.com/motemen/ghq
+  }
+}
+
 function mk_ssh_config() {
   cat <<EOF >.ssh/config
 ControlMaster auto
@@ -37,6 +44,7 @@ function main() {
   mk_ssh_config
   setup_lesskey
   install_python_modules
+  install_ghq
 }
 
 main
