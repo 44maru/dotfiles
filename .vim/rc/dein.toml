@@ -83,4 +83,14 @@ repo = 'jeetsukumaran/vim-buffergator'
 repo = 'ap/vim-buftabline'
 
 [[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+
+[[plugins]]
+repo = 'dense-analysis/ale'
+
+[[plugins]]
+repo = 'sebdah/vim-delve'
+
+[[plugins]]
 repo = 'cespare/vim-toml'
