@@ -13,6 +13,9 @@ execute "set <M-n>=\en"
 
 let mapleader = ";"
 
+# save file ctrl+s
+nnoremap <C-s> :w<CR>
+
 "===================
 " Indent
 "===================
@@ -113,7 +116,7 @@ nnoremap <C-p> :bp<CR>
 nnoremap Q :bp<bar>bd #<CR>
 
 "-----------------------
-" Window split
+" Window
 "-----------------------
 " window jump prefix (Alt + w)
 nnoremap <M-w> <C-w>w
@@ -129,6 +132,20 @@ nmap <C-w>, <C-w><<C-w>
 nmap <C-w>. <C-w>><C-w>
 nmap <Leader>w.    <C-w>.
 nmap <Leader>w,    <C-w>,
+
+" window size to be maximum or return original size
+let g:toggle_window_size = 0
+function! ToggleWindowSize()
+  if g:toggle_window_size == 1
+    exec "normal \<C-w>="
+    let g:toggle_window_size = 0
+  else
+    :resize
+    :vertical resize
+    let g:toggle_window_size = 1
+  endif
+endfunction
+nnoremap W :call ToggleWindowSize()<CR>
 
 "-----------------------
 " ctags
@@ -193,7 +210,7 @@ endfunction
 " ------------------
 "nnoremap <Leader>n :NERDTreeToggle<CR>
 " 新しいtabで開いたときにツリーを同期(vim-nerdtree-tabsプラグイン)
-nnoremap <Leader>n :NERDTreeTabsToggle<CR>
+nnoremap <Leader>n :NERDTreeTabsToggle<CR><C-w>l
 " 現在開いているファイルに移動してTreeを再表示
 nnoremap <Leader>N :CD<CR>:NERDTree<CR>
 " Tree内の現在開いているファイルへカーソル移動
@@ -319,7 +336,6 @@ xmap <Leader>M <Plug>(quickhl-manual-reset)
 
 " call neobundle#end()
 " Required:
-"filetype plugin on "
 
 "未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定"
 "毎回聞かれると邪魔な場合もあるので、この設定は任意です
