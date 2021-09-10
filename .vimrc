@@ -13,7 +13,7 @@ execute "set <M-n>=\en"
 
 let mapleader = ";"
 
-# save file ctrl+s
+" save file ctrl+s
 nnoremap <C-s> :w<CR>
 
 "===================
