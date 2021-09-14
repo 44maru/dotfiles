@@ -78,7 +78,7 @@ alias vimzsh='vim ~/.zshrc'
 alias sourcezsh='source ~/.zshrc'
 
 alias gs='git status'
-alias gb='git branch'
+alias gb='git --no-pager branch -a'
 alias gd='git diff'
 alias ga='git add'
 alias gm='git commit -m'
