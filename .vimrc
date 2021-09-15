@@ -595,3 +595,8 @@ call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'leave': 1})
 call lexima#add_rule({'char': '<TAB>', 'at': '\%#`', 'leave': 1})
 call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'leave': 1})
 call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
+
+"--------------------
+" winresizer.vim
+"--------------------
+let g:winresizer_start_key = '<Leader>w'
