@@ -87,6 +87,10 @@ repo = 'neoclide/coc.nvim'
 rev = 'release'
 
 [[plugins]]
+repo = 'liuchengxu/vista.vim'
+rev = 'release'
+
+[[plugins]]
 repo = 'dense-analysis/ale'
 
 [[plugins]]
@@ -94,3 +98,6 @@ repo = 'sebdah/vim-delve'
 
 [[plugins]]
 repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'simeji/winresizer'
