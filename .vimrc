@@ -10,6 +10,8 @@ execute "set <M-f>=\ef"
 execute "set <M-w>=\ew"
 " Enable Alt + n as <M-n>
 execute "set <M-n>=\en"
+" Enable Alt + o as <M-o>
+execute "set <M-o>=\eo"
 
 let mapleader = ";"
 
