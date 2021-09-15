@@ -6,6 +6,7 @@
   "suggest.timeout": 5000,
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": [],
+  "highlight.colors.enable": false,
   "languageserver": {
     "go": {
       "command": "gopls",
