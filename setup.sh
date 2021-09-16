@@ -24,10 +24,14 @@ function install_python_modules() {
   pip3 install --user autopep8
 }
 
-function install_ghq() {
+function install_go_modules() {
   test -e /usr/bin/go && {
-    echo "install ghq"
-    go get github.com/motemen/ghq
+    echo "=== install ghq ==="
+    go get -v github.com/motemen/ghq
+    echo "=== install goimports ==="
+    go get -v golang.org/x/tools/cmd/goimports
+    echo "=== install gopls ==="
+    go get -v golang.org/x/tools/gopls
   }
 }
 
@@ -44,7 +48,7 @@ function main() {
   mk_ssh_config
   setup_lesskey
   install_python_modules
-  install_ghq
+  install_go_modules
 }
 
 main
