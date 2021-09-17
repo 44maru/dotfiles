@@ -123,6 +123,21 @@ nnoremap Q :bp<bar>bd #<CR>
 " window jump prefix (Alt + w)
 nnoremap <M-w> <C-w>w
 
+" vim windowとtmux paneを同じキーバインドで移動
+function! MoveCursorWithTmux(vim_dir, tmux_dir)
+    let old_winnr = winnr()
+    execute "normal! \<C-w>" . a:vim_dir
+
+    " フォーカスがうつってなかったらpane移動
+    if old_winnr == winnr()
+        silent call system('tmux select-pane -' . a:tmux_dir)
+    endif
+endfunction
+
+for [vim_dir, tmux_dir] in [['h', 'L'], ['j', 'U'], ['k', 'D'], ['l', 'R']]
+    execute printf("nnoremap <silent> <C-w>%s :<C-u>silent call MoveCursorWithTmux('%s', '%s')<CR>", vim_dir, vim_dir, tmux_dir)
+endfor
+
 " window size vertical
 nmap <C-w>- <C-w>-<C-w>
 nmap <C-w>; <C-w>+<C-w>
