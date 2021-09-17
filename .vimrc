@@ -615,3 +615,4 @@ call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
 " winresizer.vim
 "--------------------
 let g:winresizer_start_key = '<Leader>w'
+let g:winresizer_vert_resize = 5
