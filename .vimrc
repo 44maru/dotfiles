@@ -617,3 +617,17 @@ call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
 "--------------------
 let g:winresizer_start_key = '<Leader>w'
 let g:winresizer_vert_resize = 5
+
+"--------------------
+" vim-gitgutter
+"--------------------
+" memo
+"
+" 無効化
+"  :GitGutterDisable
+" 行ハイライト
+"  :GitGutterLineHighlightsToggle
+
+let g:gitgutter_sign_modified = 'M'
+let g:gitgutter_override_sign_column_highlight = 0
+highlight SignColumn ctermbg=black
