@@ -630,5 +630,8 @@ let g:winresizer_vert_resize = 5
 "  :GitGutterLineHighlightsToggle
 
 let g:gitgutter_sign_modified = 'M'
-let g:gitgutter_override_sign_column_highlight = 0
-highlight SignColumn ctermbg=black
+let g:gitgutter_sign_removed = '-'
+highlight SignColumn ctermbg=242
+highlight GitGutterAdd ctermfg=white ctermbg=2
+highlight GitGutterDelete ctermfg=white ctermbg=red
+highlight GitGutterChange ctermfg=black ctermbg=3
