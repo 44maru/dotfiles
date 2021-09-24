@@ -47,6 +47,7 @@ set hlsearch
 "===================
 " Paste from yank regsiter
 nnoremap <Leader>p "0p
+vnoremap <Leader>p "0p
 
 "===================
 " Mouse ON/OFF
