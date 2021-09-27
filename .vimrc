@@ -105,7 +105,6 @@ vnoremap * "zy:let @/ = @z<CR>n
 "--- normal mode ---
 nnoremap <C-l> $
 nnoremap tt :lcd %:h<CR>:term<CR>
-tnoremap <C-j> <C-w><S-n>
 
 "--- search word ---
 nnoremap * *N
@@ -165,6 +164,26 @@ function! ToggleWindowSize()
   endif
 endfunction
 nnoremap W :call ToggleWindowSize()<CR>
+
+"-----------------------
+" terminal
+"-----------------------
+" ctrl+j でコマンドモード移行
+tnoremap <C-j> <C-w><S-n>
+
+function! s:open(args) abort
+    if empty(term_list())
+        execute "terminal" a:args
+    else
+        let bufnr = term_list()[0]
+        execute term_getsize(bufnr)[0] . "new"
+        execute "buffer + " bufnr
+    endif
+endfunction
+
+" すでに :terminal が存在していればその :terminal を使用する
+command! -nargs=*
+\   Terminal call s:open(<q-args>)
 
 "-----------------------
 " ctags
