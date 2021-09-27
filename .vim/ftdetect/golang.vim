@@ -191,6 +191,7 @@ nnoremap <silent><nowait> <C-c>p  :<C-u>CocListResume<CR>
 " 事前に以下のコマンドでcoc-listsをインストールする必要がある
 " :CocInstall coc-lists
 nnoremap <silent> <Leader>ff :CocList files<CR>
+nnoremap <silent> <Leader>fb :CocList buffers<CR>
 
 "--------------------
 " vista.vim
