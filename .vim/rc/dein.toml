@@ -104,3 +104,6 @@ repo = 'simeji/winresizer'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = "tpope/vim-fugitive"
