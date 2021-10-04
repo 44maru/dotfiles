@@ -135,7 +135,7 @@ function! MoveCursorWithTmux(vim_dir, tmux_dir)
     endif
 endfunction
 
-for [vim_dir, tmux_dir] in [['h', 'L'], ['j', 'U'], ['k', 'D'], ['l', 'R']]
+for [vim_dir, tmux_dir] in [['h', 'L'], ['j', 'D'], ['k', 'U'], ['l', 'R']]
     execute printf("nnoremap <silent> <C-w>%s :<C-u>silent call MoveCursorWithTmux('%s', '%s')<CR>", vim_dir, vim_dir, tmux_dir)
 endfor
 
