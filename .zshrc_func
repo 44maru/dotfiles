@@ -48,3 +48,9 @@ function clipboard() {
       echo "$line"
     fi
 }
+
+function vim() {
+    [ -v "$TMUX" -o -v "$ON_TMUX" ] && tmux select-pane -T vim
+    command vim $@
+    [ -v "$TMUX" -o -v "$ON_TMUX" ] && tmux select-pane -T novim
+}
