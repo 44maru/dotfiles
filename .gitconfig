@@ -25,3 +25,5 @@
 [mergetool]
 	prompt = false
 	keepBackup = false
+[core]
+   pager = LESSCHARSET=utf-8 less
