@@ -3,58 +3,61 @@
 DOTFILES=$(ls -d .?* | grep -v "\.git$" | grep -v "^\.$" | grep -v "^\.\.$" | grep -v "\.swp$")
 
 function remove_dotfiles() {
-  for dotfile in ${DOTFILES[@]}; do
-    rm -rf $HOME/$dotfile
-  done
+    for dotfile in ${DOTFILES[@]}; do
+        rm -rf $HOME/$dotfile
+    done
 }
 
 function mk_dotfiles_link() {
-  for dotfile in ${DOTFILES[@]}; do
-    ln -s $PWD/$dotfile $HOME/$dotfile
-  done
+    for dotfile in ${DOTFILES[@]}; do
+        ln -s $PWD/$dotfile $HOME/$dotfile
+    done
 }
 
 function setup_lesskey() {
-  cd $HOME
-  lesskey
+    cd $HOME
+    lesskey
 }
 
 function install_python_modules() {
-  echo "install python modules"
-  pip3 install --user autopep8
+    echo "install python modules"
+    pip3 install --user autopep8
 }
 
 function install_go_modules() {
-  test -e /usr/bin/go && {
-    echo "=== install ghq ==="
-    go get -v github.com/motemen/ghq
-    echo "=== install goimports ==="
-    go get -v golang.org/x/tools/cmd/goimports
-    echo "=== install gopls ==="
-    go get -v golang.org/x/tools/gopls
-  }
+    test -e /usr/bin/go && {
+        echo "=== install ghq ==="
+        go get -v github.com/motemen/ghq
+        echo "=== install goimports ==="
+        go get -v golang.org/x/tools/cmd/goimports
+        echo "=== install gopls ==="
+        go get -v golang.org/x/tools/gopls
+    }
 }
 
 function mk_ssh_config() {
-  cat <<EOF >.ssh/config
+    cat <<EOF >.ssh/config
 ControlMaster auto
 ControlPath ~/.ssh/tmp/ssh_mux_%h_%p_%r
 EOF
 }
 
 function install_fzf() {
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install
+    which fzf >/dev/null || {
+        echo "install fzf"
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        ~/.fzf/install
+    }
 }
 
 function main() {
-  remove_dotfiles
-  mk_dotfiles_link
-  mk_ssh_config
-  setup_lesskey
-  install_python_modules
-  install_go_modules
-  install_fzf
+    remove_dotfiles
+    mk_dotfiles_link
+    mk_ssh_config
+    setup_lesskey
+    install_python_modules
+    install_go_modules
+    install_fzf
 }
 
 main
