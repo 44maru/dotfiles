@@ -87,6 +87,7 @@ alias gpl='git pull'
 alias gcl='git clone'
 alias gr='git restore'
 alias gc='git clean -f .'
+alias gcf='git branch -a | fzf | sed "s/*//" | sed "s%remotes/origin/%%" | xargs git checkout'
 
 #-----------------------------------------------
 # vi-keys
