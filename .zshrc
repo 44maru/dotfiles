@@ -288,7 +288,7 @@ zle -N __cd_up;   bindkey '^o' __cd_up
 }
 
 # fzf -> vim
-function fe() {
+function fv() {
   local files
     IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --exit-0))
       [[ -n "$files"  ]] && ${EDITOR:-vim} "${files[@]}"
