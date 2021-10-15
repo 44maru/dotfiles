@@ -42,6 +42,11 @@ ControlPath ~/.ssh/tmp/ssh_mux_%h_%p_%r
 EOF
 }
 
+function install_fzf() {
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+}
+
 function main() {
   remove_dotfiles
   mk_dotfiles_link
@@ -49,6 +54,7 @@ function main() {
   setup_lesskey
   install_python_modules
   install_go_modules
+  install_fzf
 }
 
 main

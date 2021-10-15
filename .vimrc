@@ -230,16 +230,18 @@ set splitright
 
 
 " ------------------
-" fuzzy finder
+" fzf
 " ------------------
-nnoremap <silent> <Leader>ff :NERDTreeClose<CR>:FufFile **/<CR>
-nnoremap <expr> <Leader>j ':NERDTreeClose<CR>:FufFile **/' . expand("<cword>") . '<CR>'
+nnoremap <silent> <Leader>ff :Files<CR>
+nnoremap <silent> <Leader>fb :Buffers<CR>
+nnoremap <silent> <Leader>fg :GFiles?<CR>
+nnoremap <Leader>fa :Ag 
+nnoremap <expr> <Leader>j ':Files **/' . expand("<cword>") . '<CR>'
 xnoremap <Leader>j :call <SID>search_file()<CR>
 
 function! s:search_file()
   silent normal gv"zy
-  silent execute ":NERDTreeClose"
-  silent execute ":FufFile **/" . @z
+  silent execute ":Files **/" . @z
 endfunction
 
 

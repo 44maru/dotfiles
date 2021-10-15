@@ -107,3 +107,10 @@ repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = "tpope/vim-fugitive"
+
+[[plugins]]
+repo = "junegunn/fzf"
+build = './install --bin'
+
+[[plugins]]
+repo = "junegunn/fzf.vim"
