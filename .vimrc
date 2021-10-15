@@ -551,8 +551,11 @@ au BufWrite *.sh :Autoformat
 au BufWrite *.py :Autoformat
 au BufWrite *.go :Autoformat
 
-let g:formatdef_my_custom_sh = '"shfmt -i 2"'
+let g:formatdef_my_custom_sh = '"shfmt -i 4"'
 let g:formatters_sh = ['my_custom_sh']
+
+let g:formatdef_my_custom_bats = '"shfmt -ln bats -i 4"'
+let g:formatters_bats = ['my_custom_bats']
 
 let g:formatdef_autopep8 = '"autopep8 - --aggressive --aggressive"'
 let g:formatters_python = ['autopep8']
