@@ -232,6 +232,10 @@ set splitright
 " ------------------
 " fzf
 " ------------------
+let chk=getftype("/usr/bin/fdfind")
+if chk != ""
+    let $FZF_DEFAULT_COMMAND="fdfind --color always -H -E .git"
+endif
 nnoremap <silent> <Leader>ff :Files<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 nnoremap <silent> <Leader>fg :GFiles?<CR>
@@ -243,7 +247,6 @@ function! s:search_file()
   silent normal gv"zy
   silent execute ":Files **/" . @z
 endfunction
-
 
 " ------------------
 " NERDTree

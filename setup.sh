@@ -49,10 +49,27 @@ function mk_ssh_config() {
 
 function install_fzf() {
     which fzf >/dev/null || {
-        echo "install fzf"
+        echo "=== install fzf ==="
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
         ~/.fzf/install
     }
+}
+
+function install_linuxbrew() {
+    [ -f $HOME/.linuxbrew/bin/brew ] || {
+        echo "=== install linuxbrew ==="
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+    }
+}
+
+function install_utility_modules() {
+    install_python_modules
+    install_go_modules
+    install_fzf
+    #install_linuxbrew
+
+    # https://askubuntu.com/questions/1290262/unable-to-install-bat-error-trying-to-overwrite-usr-crates2-json-which
+    # sudo apt install --fix-broken -o Dpkg::Options::="--force-overwrite" ripgrep bat
 }
 
 function main() {
@@ -60,9 +77,7 @@ function main() {
     mk_dotfiles_link
     mk_ssh_config
     setup_lesskey
-    install_python_modules
-    install_go_modules
-    install_fzf
+    install_utility_modules
 }
 
 main

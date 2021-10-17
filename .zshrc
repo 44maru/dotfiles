@@ -280,7 +280,20 @@ zle -N __cd_up;   bindkey '^o' __cd_up
     bindkey '^@' fzf-cd-widget
 
     [ -f /usr/bin/ag ] && {
-        export FZF_DEFAULT_COMMAND='ag -g ""'
+        export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
+    }
+
+    # https://askubuntu.com/questions/1290262/unable-to-install-bat-error-trying-to-overwrite-usr-crates2-json-which
+    # sudo apt install --fix-broken -o Dpkg::Options::="--force-overwrite" ripgrep bat
+    [ -f /usr/bin/rg ] && {
+        export FZF_DEFAULT_COMMAND="rg --color always --files --hidden --glob '!.git/**'"
+    }
+
+    # sudo apt install fd-find
+    [ -f /usr/bin/fdfind ] && {
+        export FZF_DEFAULT_COMMAND="fdfind --color always -H -E .git"
+        export FZF_CTRL_T_COMMAND="fdfind --color always -H -E .git"
+        export FZF_ALT_C_COMMAND="fdfind --color always -t d -H -E .git"
     }
 
     # 絞り込み画面の中での外部プログラムを呼び出すバインド
@@ -295,11 +308,28 @@ function fv() {
       [[ -n "$files"  ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
+function fzf-cd () {
+    local search_dir=${FZF_SEARCH_DIR:-$HOME}
+    local dir=$(find $search_dir -maxdepth 1 -type d  | sed "s%$search_dir/%%" | grep -v "^\.\|^$search_dir" | fzf)
+    echo $dir
+    cd $search_dir/$dir
+    zle reset-prompt
+}
+zle -N fzf-cd
+bindkey '^]' fzf-cd # ctrl + ]
+
 #-------------------
 # bat
 #-------------------
 [ -f /usr/bin/batcat ] && {
     alias cat=batcat
+}
+
+#-------------------
+# fd
+#-------------------
+[ -f /usr/bin/fdfind ] && {
+    alias fd=fdfind
 }
 
 #-------------------
