@@ -333,7 +333,6 @@ map <F5> <ESC>:exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"<CR>
 " ============================================
 "call pathogen#infect()
 
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 
 " ============================================
 " vim-quickhl plugin
@@ -577,7 +576,10 @@ let Tlist_Close_On_Select = 0
 " 0(デフォルト) または 1(コンパクト)
 let Tlist_Compact_Format = 0
 " ctagsコマンドの場所 パスが通っている場合はctagだけでOK
-let Tlist_Ctags_Cmd = "ctags"
+let chk=getftype("/usr/local/bin/ctags")
+if chk != ""
+   let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+endif
 " タグのプロトタイプを表示する
 let Tlist_Display_Prototype = 1
 " C++のようにスコープを持つタグで、スコープを表示する
