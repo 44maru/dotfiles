@@ -20,8 +20,10 @@ function setup_lesskey() {
 }
 
 function install_python_modules() {
-    echo "install python modules"
-    pip3 install --user autopep8
+    which pip3 >/dev/null && {
+        echo "install python modules"
+        pip3 install --user autopep8
+    }
 }
 
 function install_go_modules() {
@@ -36,10 +38,13 @@ function install_go_modules() {
 }
 
 function mk_ssh_config() {
-    cat <<EOF >.ssh/config
-ControlMaster auto
-ControlPath ~/.ssh/tmp/ssh_mux_%h_%p_%r
-EOF
+    mkdir -p ~/.ssh/tmp
+    grep ControlMaster ~/.ssh/config >/dev/null || {
+        echo "ControlMaster auto" >>~/.ssh/config
+    }
+    grep ControlPath ~/.ssh/config >/dev/null || {
+        echo "~/.ssh/tmp/ssh_mux_%h_%p_%r" >>~/.ssh/config
+    }
 }
 
 function install_fzf() {
