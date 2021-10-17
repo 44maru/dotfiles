@@ -291,9 +291,28 @@ zle -N __cd_up;   bindkey '^o' __cd_up
 # fzf -> vim
 function fv() {
   local files
-    IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --exit-0))
+    IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --exit-0 --preview "cat --color=always --style=header,grid --line-range :100 {}"))
       [[ -n "$files"  ]] && ${EDITOR:-vim} "${files[@]}"
 }
+
+#-------------------
+# bat
+#-------------------
+[ -f /usr/bin/batcat ] && {
+    alias cat=batcat
+}
+
+#-------------------
+# Linuxbrew
+#-------------------
+#export HOMEBREW_PREFIX="$HOME/.linuxbrew";
+#export HOMEBREW_CELLAR="$HOME/.linuxbrew/Cellar";
+#export HOMEBREW_REPOSITORY="$HOME/.linuxbrew/Homebrew";
+#export HOMEBREW_SHELLENV_PREFIX="$HOME/.linuxbrew";
+#export PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin${PATH+:$PATH}";
+#export MANPATH="$HOME/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
+#export INFOPATH="$HOME/.linuxbrew/share/info:${INFOPATH:-}";
+
 
 source ~/.zshrc_func
 source ~/.zshrc_after
