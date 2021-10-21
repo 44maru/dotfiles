@@ -240,11 +240,12 @@ nnoremap <silent> <Leader>ff :Files<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 nnoremap <silent> <Leader>fg :GFiles?<CR>
 nnoremap <Leader>fa :Ag 
-nnoremap <expr> <Leader>j ':Files **/' . expand("<cword>") . '<CR>'
+nnoremap <expr> <Leader>j ':Files<CR>' . expand("<cword>"
 xnoremap <Leader>j :call <SID>search_file()<CR>
 
 function! s:search_file()
   silent normal gv"zy
+  " fzfではこれは動作しない
   silent execute ":Files **/" . @z
 endfunction
 
