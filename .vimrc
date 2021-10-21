@@ -234,7 +234,7 @@ set splitright
 " ------------------
 let chk=getftype("/usr/bin/fdfind")
 if chk != ""
-    let $FZF_DEFAULT_COMMAND="fdfind --color always -H -E .git"
+    let $FZF_DEFAULT_COMMAND="fdfind --color always --type file -H -E .git"
 endif
 nnoremap <silent> <Leader>ff :Files<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
