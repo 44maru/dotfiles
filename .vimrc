@@ -240,7 +240,7 @@ nnoremap <silent> <Leader>ff :Files<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 nnoremap <silent> <Leader>fg :GFiles?<CR>
 nnoremap <Leader>fa :Ag 
-nnoremap <expr> <Leader>j ':Files<CR>' . expand("<cword>"
+nnoremap <expr> <Leader>j ':Files<CR>' . expand("<cword>")
 xnoremap <Leader>j :call <SID>search_file()<CR>
 
 function! s:search_file()
