@@ -291,7 +291,7 @@ zle -N __cd_up;   bindkey '^o' __cd_up
 
     # sudo apt install fd-find
     [ -f /usr/bin/fdfind ] && {
-        export FZF_DEFAULT_COMMAND="fdfind --color always -H -E .git"
+        export FZF_DEFAULT_COMMAND="fdfind --color always --type file -H -E .git"
         export FZF_CTRL_T_COMMAND="fdfind --color always -H -E .git"
         export FZF_ALT_C_COMMAND="fdfind --color always -t d -H -E .git"
     }
