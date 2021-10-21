@@ -38,7 +38,7 @@ function tsh() {
 # and set preference : Terminal > Remote-controlled > Windows clipboard
 function clipboard() {
     line=`cat`
-    if [ -v "$TMUX" -o -v "$ON_TMUX" ]; then
+    if [ -v TMUX -o -v ON_TMUX ]; then
       # https://github.com/tmux/tmux/issues/636#issuecomment-264976452
       echo -ne "\033Ptmux;\033\033[5i$line\033\033[4i\033\\"
       echo "$line"
@@ -50,7 +50,7 @@ function clipboard() {
 }
 
 function vim() {
-    [ -v "$TMUX" -o -v "$ON_TMUX" ] && tmux select-pane -T vim
+    [ -v TMUX -o -v ON_TMUX ] && tmux select-pane -T vim
     command vim $@
-    [ -v "$TMUX" -o -v "$ON_TMUX" ] && tmux select-pane -T novim
+    [ -v TMUX -o -v ON_TMUX ] && tmux select-pane -T novim
 }
