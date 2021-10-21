@@ -43,7 +43,7 @@ function mk_ssh_config() {
         echo "ControlMaster auto" >>~/.ssh/config
     }
     grep ControlPath ~/.ssh/config >/dev/null || {
-        echo "~/.ssh/tmp/ssh_mux_%h_%p_%r" >>~/.ssh/config
+        echo "ControlPath ~/.ssh/tmp/ssh_mux_%h_%p_%r" >>~/.ssh/config
     }
 }
 
