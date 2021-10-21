@@ -38,14 +38,14 @@ function tsh() {
 # and set preference : Terminal > Remote-controlled > Windows clipboard
 function clipboard() {
     line=`cat`
-    if [ -z "$TMUX" ]; then
-      echo -ne '\e''[5i'
-      echo "$line"
-      echo -ne '\e''[4i'
-    else
+    if [ -v "$TMUX" -o -v "$ON_TMUX" ]; then
       # https://github.com/tmux/tmux/issues/636#issuecomment-264976452
       echo -ne "\033Ptmux;\033\033[5i$line\033\033[4i\033\\"
       echo "$line"
+    else
+      echo -ne '\e''[5i'
+      echo "$line"
+      echo -ne '\e''[4i'
     fi
 }
 
