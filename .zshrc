@@ -155,30 +155,29 @@ precmd () { vcs_info }
 PROMPT='%B%{${fg[red]}%}[%n%{${fg[blue]}%}@%m${WINDOW:+":$WINDOW"}]%{%(?.$fg[blue].$fg[red])%}${vcs_info_msg_0_}%(!.#.$)%{${reset_color}%}%b '
 
 #PROMPT='%B%{${fg[red]}%}[%n%{${fg[blue]}%}@%m${WINDOW:+":$WINDOW"}]%{%(?.$fg[blue].$fg[red])%}%(!.#.$)%{${reset_color}%}%b '
-#RPROMPT='%{${fg[green]}%}[%(5~,%-1~/.../%2~,%~)] %{${fg[magenta]}%}%B%T%b%{${reset_color}%} $(parse_git_branch)'
 #SPROMPT="%B%r is correct? [n,y,a,e]:%b "
 
 
 #PROMPT="%n@%m%% "
-RPROMPT="[%~]"
+#RPROMPT="[%~]"
 SPROMPT="correct: %R -> %r ? "
 
 
 typeset -ga chpwd_functions
 
-function _toriaezu_ls() {
-ls -v -F --color=auto
-}
-
-function _change_rprompt {
-if [ $PWD = $HOME ]; then
-  RPROMPT="[%T]"
-else
-  RPROMPT="%{$fg_bold[white]%}[%{$reset_color%}%{$fg[cyan]%}%60<..<%~%{$reset_color%}%{$fg_bold[white]%}]%{$reset_color%}"
-fi
-}
-
 export PATH=$HOME/.my_tools:$PATH
+
+#-----------------------------------------------
+# display current dir on tmux pane border
+#-----------------------------------------------
+function disp_current_dir_on_pane_border() {
+  [ -v TMUX -o -v ON_TMUX  ] && {
+      tmux select-pane -T ${PWD}
+      type precmd > /dev/null 2>&1 && precmd
+  }
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook chpwd disp_current_dir_on_pane_border
 
 #-----------------------------------------------
 # Python setting
