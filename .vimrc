@@ -248,7 +248,8 @@ xnoremap <Leader>j :call <SID>search_file()<CR>
 function! s:search_file()
   silent normal gv"zy
   " fzfではこれは動作しない
-  silent execute ":Files **/" . @z
+  "silent execute ":Files **/" . @z
+  silent execute ":e " . @z
 endfunction
 
 " ------------------
