@@ -63,8 +63,10 @@ set ttymouse=xterm2
 " get gitlab url of current edit file
 "===============================================
 " need copy ~/.zshrc to ~/.zshenv to execute user custom command.
-nnoremap <expr> <Leader>g ':lcd %:h<CR>:!giturl ' . expand("%") . '<CR>'
-nnoremap <expr> <Leader>G ':lcd %:h<CR>:!githuburl ' . expand("%") . '<CR>'
+" giturl/githuburlコマンドは1回実行だとうまくクリップボードコピーされないので2回呼び出している
+" また、コマンド呼び出し時にcdしているので、呼出し後は元の場所にcdしている
+nnoremap <expr> <Leader>g ':lcd %:h<CR>:!giturl ' . expand("%") . '<CR>:!giturl ' . expand("%") . '<CR>:lcd -<CR>'
+nnoremap <expr> <Leader>G ':lcd %:h<CR>:!githuburl ' . expand("%") . '<CR>:!giturl ' . expand("%") . '<CR>:lcd -<CR>'
 
 "===========================================
 " Reload vimrc
