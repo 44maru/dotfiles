@@ -191,9 +191,13 @@ export PIPENV_VENV_IN_PROJECT=true
 #-----------------------------------------------
 if [ -f /usr/bin/kubectl ]; then
     source <(kubectl completion zsh)
+    alias kc='kubectl'
+    alias -g Y='-o yaml'
+    alias -g J='-o json | jq .'
+    [ -f /usr/bin/batcat ] && {
+        alias -g Y='-o yaml | batcat --language yaml'
+    }
 fi
-
-alias kc='kubectl'
 
 #-----------------------------------------------
 # Golang
