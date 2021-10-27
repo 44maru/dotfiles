@@ -64,7 +64,7 @@ set ttymouse=xterm2
 "===============================================
 " need copy ~/.zshrc to ~/.zshenv to execute user custom command.
 nnoremap <expr> <Leader>g ':lcd %:h<CR>:!giturl ' . expand("%") . '<CR>:lcd -<CR>'
-nnoremap <expr> <Leader>g ':lcd %:h<CR>:!githuburl ' . expand("%") . '<CR>:lcd -<CR>'
+nnoremap <expr> <Leader>G ':lcd %:h<CR>:!githuburl ' . expand("%") . '<CR>:lcd -<CR>'
 
 "===========================================
 " Reload vimrc
