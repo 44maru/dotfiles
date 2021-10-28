@@ -153,8 +153,8 @@ zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 PROMPT='
-%B%{${fg[red]}%}[%n%{${fg[blue]}%}@%m${WINDOW:+":$WINDOW"}]%{%(?.$fg[blue].$fg[red])%}${vcs_info_msg_0_}%(!.#.$) [%~]
-%{${reset_color}%}%b '
+%B%{${fg[red]}%}[%n%{${fg[blue]}%}@%m${WINDOW:+":$WINDOW"}]%{%(?.$fg[blue].$fg[red])%}${vcs_info_msg_0_} [%~]
+%(!.#.$)%{${reset_color}%}%b '
 
 #RPROMPT="[%~]"
 RPROMPT=""
