@@ -8,7 +8,15 @@ stty stop undef
 #-----------------------------------------------
 #export LANG=ja_JP.utf8
 export LANG=en_US.utf8
-export EDITOR=vim
+
+if type nvim &>/dev/null; then
+    export EDITOR=nvim
+    export VISUAL=nvim
+else
+    export EDITOR=vim
+    export VISUAL=vim
+fi
+
 export VISUAL=vim
 export COLOR=32
 export SCREENCOLOR=g
@@ -74,7 +82,12 @@ alias ls='ls -CF --color'
 
 alias grep='grep --color'
 
-alias vimzsh='vim ~/.zshrc'
+if type nvim &>/dev/null; then
+    alias vimzsh='nvim ~/.zshrc'
+else
+    alias vimzsh='vim ~/.zshrc'
+fi
+
 alias sourcezsh='source ~/.zshrc'
 
 alias gs='git status'
