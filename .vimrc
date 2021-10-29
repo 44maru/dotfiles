@@ -2,6 +2,19 @@ syntax on
 
 set cursorline
 
+if !has('nvim')
+    " Enable Alt + m as <A-m>
+    execute "set <A-m>=\em"
+    " Enable Alt + f as <A-f>
+    execute "set <A-f>=\ef"
+    " Enable Alt + w as <A-w>
+    execute "set <A-w>=\ew"
+    " Enable Alt + n as <A-n>
+    execute "set <A-n>=\en"
+    " Enable Alt + o as <A-o>
+    execute "set <A-o>=\eo"
+endif
+
 let mapleader = ";"
 
 " save file ctrl+s
