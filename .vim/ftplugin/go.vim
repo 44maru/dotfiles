@@ -196,4 +196,4 @@ nnoremap <silent> <Leader>fb :CocList buffers<CR>
 "--------------------
 " vista.vim
 "--------------------
-nnoremap <silent><nowait> <M-o>  :Vista coc<CR>
+nnoremap <silent><nowait> <A-o>  :Vista coc<CR>
