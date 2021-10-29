@@ -2,17 +2,6 @@ syntax on
 
 set cursorline
 
-" Enable Alt + m as <M-m>
-execute "set <M-m>=\em"
-" Enable Alt + f as <M-f>
-execute "set <M-f>=\ef"
-" Enable Alt + w as <M-w>
-execute "set <M-w>=\ew"
-" Enable Alt + n as <M-n>
-execute "set <M-n>=\en"
-" Enable Alt + o as <M-o>
-execute "set <M-o>=\eo"
-
 let mapleader = ";"
 
 " save file ctrl+s
@@ -122,7 +111,7 @@ nnoremap Q :bp<bar>bd #<CR>
 " Window
 "-----------------------
 " window jump prefix (Alt + w)
-nnoremap <M-w> <C-w>w
+nnoremap <A-w> <C-w>w
 
 " vim windowとtmux paneを同じキーバインドで移動
 function! MoveCursorWithTmux(vim_dir, tmux_dir)
@@ -192,8 +181,8 @@ set tags=tags;
 " ctags as like eclipse
 nnoremap <F3> g<C-]>
 nnoremap <expr> <C-k> ':tjump ' . expand("<cword>") . '<CR>'
-nnoremap <expr> <M-m> ':tag ' . expand("<cword>") . '<CR>'
-nnoremap <expr> <M-f> ':tag ' . expand("<cfile>") . '<CR>'
+nnoremap <expr> <A-m> ':tag ' . expand("<cword>") . '<CR>'
+nnoremap <expr> <A-f> ':tag ' . expand("<cfile>") . '<CR>'
 
 "--- Insert mode ---
 "move
@@ -259,7 +248,7 @@ nnoremap <Leader>n :NERDTreeTabsToggle<CR><C-w>l
 " 現在開いているファイルに移動してTreeを再表示
 nnoremap <Leader>N :CD<CR>:NERDTree<CR>
 " Tree内の現在開いているファイルへカーソル移動
-nnoremap <M-n> :NERDTreeFind<CR>
+nnoremap <A-n> :NERDTreeFind<CR>
 
 " vim起動時にツリーを表示
 let g:nerdtree_tabs_open_on_console_startup=1
