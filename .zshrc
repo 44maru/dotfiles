@@ -181,18 +181,6 @@ typeset -ga chpwd_functions
 export PATH=$HOME/.my_tools:$PATH
 
 #-----------------------------------------------
-# display current dir on tmux pane border
-#-----------------------------------------------
-function disp_current_dir_on_pane_border() {
-  [ -v TMUX -o -v ON_TMUX  ] && {
-      tmux select-pane -T ${PWD}
-      type precmd > /dev/null 2>&1 && precmd
-  }
-}
-autoload -Uz add-zsh-hook
-add-zsh-hook chpwd disp_current_dir_on_pane_border
-
-#-----------------------------------------------
 # Python setting
 #-----------------------------------------------
 export PYTHONUSERBASE=$HOME/.python
