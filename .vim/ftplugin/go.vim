@@ -88,6 +88,13 @@ nmap <silent> <C-k> <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+if has('nvim')
+    let chk=getftype("~/.config/coc/extensions/node_modules/coc-fzf-preview")
+    if chk != ""
+       CocInstall coc-fzf-preview
+    endif
+    nmap <silent> gr :CocCommand fzf-preview.CocReferences
+endif
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -187,11 +194,6 @@ nnoremap <silent><nowait> <C-c>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <C-c>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <C-c>p  :<C-u>CocListResume<CR>
-
-" 事前に以下のコマンドでcoc-listsをインストールする必要がある
-" :CocInstall coc-lists
-nnoremap <silent> <Leader>ff :CocList files<CR>
-nnoremap <silent> <Leader>fb :CocList buffers<CR>
 
 "--------------------
 " vista.vim
