@@ -45,8 +45,10 @@ nnoremap m :set mouse=a<CR>
 nnoremap <S-m> :set mouse-=a<CR> 
 "set mouse=a
 "set mouse=n
-" mouse ON時に、windowを幅をマウスで調整するには下記設定が必要
-set ttymouse=xterm2
+" vimの場合、mouse ON時に、windowを幅をマウスで調整するには下記設定が必要
+if !has('nvim')
+    set ttymouse=xterm2
+endif
 
 "===============================================
 " get gitlab url of current edit file
