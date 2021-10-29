@@ -7,6 +7,10 @@ let mapleader = ";"
 " save file ctrl+s
 nnoremap <C-s> :w<CR>
 
+if has('nvim')
+    set termguicolors
+endif
+
 "===================
 " Indent
 "===================
