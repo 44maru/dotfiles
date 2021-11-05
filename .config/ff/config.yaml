@@ -1,0 +1,7 @@
+preview:
+  enable: true
+show_hiddne: true
+bookmark:
+  enable: true
+  file: $HOME/.config/ff/bookmark.db
+

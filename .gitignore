@@ -1,2 +1,3 @@
 .ssh
 *.swp
+.config/ff/bookmark.db

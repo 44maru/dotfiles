@@ -1,16 +1,25 @@
 #!/bin/bash
 
-DOTFILES=$(ls -d .?* | grep -v "\.git$" | grep -v "^\.$" | grep -v "^\.\.$" | grep -v "\.swp$")
+DOTFILES=$(ls -d .?* | grep -v "\.git$" | grep -v "\.config$" | grep -v "^\.$" | grep -v "^\.\.$" | grep -v "\.swp$")
 
-function remove_dotfiles() {
-    for dotfile in ${DOTFILES[@]}; do
-        rm -rf $HOME/$dotfile
-    done
-}
+# .configのようなシステム側でもファイルを作成するディレクトリは、その配下にリンクを作成したいので、ここで定義する
+SUB_DOT_DIRS=(
+    .config
+)
 
 function mk_dotfiles_link() {
     for dotfile in ${DOTFILES[@]}; do
+        rm -rf $HOME/$dotfile
         ln -s $PWD/$dotfile $HOME/$dotfile
+    done
+
+    for sub_dot_dir in ${SUB_DOT_DIRS[@]}; do
+        mkdir -p $HOME/$sub_dot_dir/$dotfile
+        dotfiles=$(ls -a $sub_dot_dir | grep -v "\.git$" | grep -v "^\.$" | grep -v "^\.\.$" | grep -v "\.swp$")
+        for dotfile in ${dotfiles[@]}; do
+            rm -rf $HOME/$sub_dot_dir/$dotfile
+            ln -s $PWD/$sub_dot_dir/$dotfile $HOME/$sub_dot_dir/$dotfile
+        done
     done
 }
 
@@ -73,7 +82,6 @@ function install_utility_modules() {
 }
 
 function main() {
-    remove_dotfiles
     mk_dotfiles_link
     mk_ssh_config
     setup_lesskey
