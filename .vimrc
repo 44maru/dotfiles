@@ -71,8 +71,8 @@ endif
 " get gitlab url of current edit file
 "===============================================
 " need copy ~/.zshrc to ~/.zshenv to execute user custom command.
-nnoremap <expr> <Leader>g ':lcd %:h<CR>:!giturl ' . expand("%") . '<CR>:lcd -<CR>'
-nnoremap <expr> <Leader>G ':lcd %:h<CR>:!githuburl ' . expand("%") . '<CR>:lcd -<CR>'
+nnoremap <expr> <Leader>g ':split<CR>:lcd %:h<CR>:!giturl '    . expand("%") . '<CR>:q<CR>'
+nnoremap <expr> <Leader>G ':split<CR>:lcd %:h<CR>:!githuburl ' . expand("%") . '<CR>:q<CR>'
 
 "===========================================
 " Reload vimrc
@@ -112,7 +112,6 @@ vnoremap * "zy:let @/ = @z<CR>n
 
 "--- normal mode ---
 nnoremap <C-l> $
-nnoremap tt :lcd %:h<CR>:term<CR>
 
 "--- search word ---
 nnoremap * *N
@@ -145,6 +144,7 @@ endfunction
 
 for [vim_dir, tmux_dir] in [['h', 'L'], ['j', 'D'], ['k', 'U'], ['l', 'R']]
     execute printf("nnoremap <silent> <C-w>%s :<C-u>silent call MoveCursorWithTmux('%s', '%s')<CR>", vim_dir, vim_dir, tmux_dir)
+    execute printf("tnoremap <C-w>%s <C-\\><C-n>:<C-u>silent call MoveCursorWithTmux('%s', '%s')<CR>", vim_dir, vim_dir, tmux_dir)
 endfor
 
 " window size vertical
@@ -176,8 +176,15 @@ nnoremap W :call ToggleWindowSize()<CR>
 "-----------------------
 " terminal
 "-----------------------
-" ctrl+j でコマンドモード移行
-tnoremap <C-j> <C-w><S-n>
+" ctrl+j でコマンドモード移行。ttでカレントファイルの場所でterminal実行
+if has('nvim')
+    autocmd TermOpen * startinsert
+    tnoremap <C-j> <C-\><C-n>
+    nnoremap tt :split<CR>:lcd %:h<CR>:term<CR>
+else
+    tnoremap <C-j> <C-w><S-n>
+    nnoremap tt :split<CR>:lcd %:h<CR>:term ++curwin<CR>
+endif
 
 function! s:open(args) abort
     if empty(term_list())
