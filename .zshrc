@@ -349,7 +349,7 @@ bindkey '^]' fzf-cd # ctrl + ]
 #export MANPATH="$HOME/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
 #export INFOPATH="$HOME/.linuxbrew/share/info:${INFOPATH:-}";
 
-
+source ~/.aliasrc
 source ~/.zshrc_func
 source ~/.zshrc_after
 
