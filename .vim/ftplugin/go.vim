@@ -93,7 +93,7 @@ if has('nvim')
     if chk != ""
        CocInstall coc-fzf-preview
     endif
-    nmap <silent> gr :CocCommand fzf-preview.CocReferences
+    nmap <silent> gr :CocCommand fzf-preview.CocReferences<CR>
 endif
 
 " Use K to show documentation in preview window.
