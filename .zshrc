@@ -102,6 +102,8 @@ alias gr='git restore'
 alias gc='git clean -f .'
 alias gcf='git branch -a | fzf | sed "s/*//" | sed "s%remotes/origin/%%" | xargs git checkout'
 
+alias ff='ff -tree'
+
 #-----------------------------------------------
 # vi-keys
 #-----------------------------------------------
