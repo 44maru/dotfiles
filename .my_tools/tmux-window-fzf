@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -n "$TMUX" ]; then
+    SELECTED="$(tmux list-windows -a | fzf-tmux -d 100 | sed 's/: .*//')"
+    if [ -n "$SELECTED" ]; then
+        echo "$SELECTED" | xargs tmux switch-client -t
+        echo "$SELECTED" | xargs tmux select-window -t
+    fi
+fi
