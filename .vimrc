@@ -46,7 +46,12 @@ filetype indent on
 autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
 
 set hlsearch
-"set number
+set statusline=%F
+
+"====================
+" toggle line number
+"====================
+nnoremap <Leader>l :set number!<CR>
 
 "===================
 " Register
