@@ -14,5 +14,10 @@
       "trace.server": "verbose",
       "filetypes": ["go"]
     }
+  },
+  "jedi": {
+    "enable": true,
+    "startupMessage": false,
+    "executable.command": "$HOME/.python/bin/jedi-language-server"
   }
 }
