@@ -460,7 +460,8 @@ endif
 " Ag
 " ============================================
 let g:ackprg = "ag --nogroup --nocolor --column"
-nnoremap <expr> <C-h> ':Ack ' . expand("<cword>") . '<CR>'
+cnoreabbrev Ack Ack!
+nnoremap <expr> <C-h> ':Ack! ' . expand("<cword>") . '<CR>'
 
 " For pyflakes color
 highlight clear SpellBad
