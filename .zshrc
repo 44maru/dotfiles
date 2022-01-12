@@ -74,37 +74,6 @@ autoload colors; colors
 zstyle ':completion:*:complete:scp:*:files' command command -
 
 #-----------------------------------------------
-# alias
-#-----------------------------------------------
-alias ll='ls -lF --color'
-alias la='ls -A --color'
-alias ls='ls -CF --color'
-
-alias grep='grep --color'
-
-if type nvim &>/dev/null; then
-    alias vimzsh='nvim ~/.zshrc'
-else
-    alias vimzsh='vim ~/.zshrc'
-fi
-
-alias sourcezsh='source ~/.zshrc'
-
-alias gs='git status'
-alias gb='git --no-pager branch -a'
-alias gd='git diff'
-alias ga='git add'
-alias gm='git commit -m'
-alias gp='git push'
-alias gpl='git pull -p'
-alias gcl='git clone'
-alias gr='git restore'
-alias gc='git clean -f .'
-alias gcf='git branch -a | fzf | sed "s/*//" | sed "s%remotes/origin/%%" | xargs git checkout'
-
-alias ff='ff -tree'
-
-#-----------------------------------------------
 # vi-keys
 #-----------------------------------------------
 bindkey -v
@@ -121,14 +90,6 @@ bindkey "^[[4~" vi-end-of-line # End
 bindkey "^[[2~" beep # Insert
 bindkey "^[[3~" delete-char # Del
 bindkey -e
-
-# move dir
-#alias gd='dirs -v; echo -n "select number: "; read newdir; cd -"$newdir"'
-alias dstat-full='dstat -Ttclmdrns'
-alias dstat-cpu='dstat -Ttclr'
-alias dstat-mem='dstat -Ttclms'
-alias dstat-net='dstat -Ttcn --net-packets'
-alias dstat-disk='dstat -Ttcldrs --top-io --top-bio'
 
 #-----------------------------------------------
 # Get git file remote url
@@ -188,19 +149,6 @@ export PATH=$HOME/.my_tools:$PATH
 export PYTHONUSERBASE=$HOME/.python
 export PATH=$PYTHONUSERBASE/bin:$PATH
 export PIPENV_VENV_IN_PROJECT=true
-
-#-----------------------------------------------
-# kubectl
-#-----------------------------------------------
-if [ -f /usr/bin/kubectl ]; then
-    source <(kubectl completion zsh)
-    alias kc='kubectl'
-    alias -g Y='-o yaml'
-    alias -g J='-o json | jq .'
-    [ -f /usr/bin/batcat ] && {
-        alias -g Y='-o yaml | batcat --language yaml'
-    }
-fi
 
 #-----------------------------------------------
 # Golang
@@ -323,20 +271,6 @@ function fzf-cd () {
 }
 zle -N fzf-cd
 bindkey '^]' fzf-cd # ctrl + ]
-
-#-------------------
-# bat
-#-------------------
-[ -f /usr/bin/batcat ] && {
-    alias cat=batcat
-}
-
-#-------------------
-# fd
-#-------------------
-[ -f /usr/bin/fdfind ] && {
-    alias fd=fdfind
-}
 
 #-------------------
 # Linuxbrew
