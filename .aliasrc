@@ -41,6 +41,7 @@ if [ -f /usr/bin/kubectl ]; then
     source <(kubectl completion zsh)
     alias kc='kubectl'
     if [ "$SHELL" = "/bin/zsh" ]; then
+        alias -g W='-o wide'
         alias -g Y='-o yaml'
         alias -g J='-o json | jq .'
         [ -f /usr/bin/batcat ] && {
