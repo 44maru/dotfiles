@@ -37,7 +37,7 @@ alias dstat-disk='dstat -Ttcldrs --top-io --top-bio'
 #-----------------------------------------------
 # kubectl
 #-----------------------------------------------
-if [ -f /usr/bin/kubectl ]; then
+if type kubectl &>/dev/null; then
     source <(kubectl completion zsh)
     alias kc='kubectl'
     if [ "$SHELL" = "/bin/zsh" ]; then
