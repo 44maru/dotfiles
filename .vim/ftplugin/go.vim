@@ -199,3 +199,13 @@ nnoremap <silent><nowait> <C-c>p  :<C-u>CocListResume<CR>
 " vista.vim
 "--------------------
 nnoremap <silent><nowait> <A-o>  :Vista coc<CR>
+
+"--------------------
+" ag
+"--------------------
+nnoremap <expr> <C-h> ':Ag! --ignore "*test*" -G ".*.go" ' . expand("<cword>") . '<CR>'
+nnoremap <expr> <Leader>fa ':Ag! --ignore "*test*" -G ".*.go" ' . expand("<cword>")
+function! s:search_file()
+  silent normal gv"zy
+  silent execute ':Ag! --ignore "*test*" -G ".*.go" "' . @z . '"'
+endfunction
