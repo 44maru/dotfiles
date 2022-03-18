@@ -259,7 +259,7 @@ endif
 nnoremap <silent> <Leader>ff :Files<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 nnoremap <silent> <Leader>fg :GFiles?<CR>
-nnoremap <Leader>fa :Ag 
+nnoremap <expr> <Leader>fa ':Ag! ' . expand("<cword>") 
 nnoremap <expr> <Leader>j ':Files<CR>' . expand("<cword>")
 xnoremap <Leader>j :call <SID>search_file()<CR>
 
@@ -267,7 +267,7 @@ function! s:search_file()
   silent normal gv"zy
   " fzfではこれは動作しない
   "silent execute ":Files **/" . @z
-  silent execute ":e " . @z
+  silent execute ':Ag! "' . @z . '"'
 endfunction
 
 " ------------------
@@ -461,7 +461,7 @@ endif
 " ============================================
 let g:ackprg = "ag --nogroup --nocolor --column"
 cnoreabbrev Ack Ack!
-nnoremap <expr> <C-h> ':Ack! ' . expand("<cword>") . '<CR>'
+nnoremap <expr> <C-h> ':Ag! ' . expand("<cword>") . '<CR>'
 
 " For pyflakes color
 highlight clear SpellBad
