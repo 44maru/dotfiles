@@ -12,6 +12,9 @@ fi
 
 alias sourcezsh='source ~/.zshrc'
 
+# watchコマンドにalias登録したコマンドを利用できるように、watchコマンドにスペースを追加したaliasを登録
+alias watch='watch '
+
 alias gs='git status'
 alias gb='git --no-pager branch -a'
 alias gd='git diff'
