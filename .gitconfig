@@ -7,10 +7,6 @@
     cm = commit
     diff1 = diff "HEAD^"
     
-[user]
-    name = 44maru
-    email = hoge@exapmle.com
-
 [push]
     default = current
 [pull]
@@ -40,3 +36,6 @@
     plus-emph-style = "bold white 21"
     hunk-header-style = "omit"
     line-numbers = true
+
+[include]
+    path = ~/.gitconfig_after
