@@ -16,7 +16,7 @@ function giturl() {
     
     # tag参照していてブランチが空の場合
     [ "$current_branch" = "" ] && {
-        current_branch=`git tag -l`
+        current_branch=`git tag --points-at`
     }
     
     local url=$git_pj_url/-/blob/$current_branch/$path_under_top_dir/$filename
@@ -33,7 +33,7 @@ function githuburl() {
 
     # tag参照していてブランチが空の場合
     [ "$current_branch" = "" ] && {
-        current_branch=`git tag -l`
+        current_branch=`git tag --points-at`
     }
 
     local url=$git_pj_url/blob/$current_branch/$path_under_top_dir/$filename
