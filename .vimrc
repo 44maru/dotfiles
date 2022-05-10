@@ -76,8 +76,8 @@ endif
 " get gitlab url of current edit file
 "===============================================
 " need copy ~/.zshrc to ~/.zshenv to execute user custom command.
-nnoremap <expr> <Leader>g ':split<CR>:lcd %:h<CR>:!giturl '    . expand("%") . '<CR>:q<CR>'
-nnoremap <expr> <Leader>G ':split<CR>:lcd %:h<CR>:!githuburl ' . expand("%") . '<CR>:q<CR>'
+nnoremap <expr> <Leader>g ':split<CR>:lcd %:h<CR>:!giturl '    . expand("%") . ' ' . line(".") . '<CR>:q<CR>'
+nnoremap <expr> <Leader>G ':split<CR>:lcd %:h<CR>:!githuburl ' . expand("%") . ' ' . line(".") . '<CR>:q<CR>'
 
 "===========================================
 " Reload vimrc
