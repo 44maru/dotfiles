@@ -27,8 +27,8 @@ repo = 'vim-scripts/taglist.vim'
 [[plugins]]
 repo = 'vim-scripts/SQLUtilities'
 
-[[plugins]]
-repo = 'kevinw/pyflakes-vim'
+#[[plugins]]
+#repo = 'kevinw/pyflakes-vim'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
