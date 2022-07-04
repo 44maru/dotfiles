@@ -576,7 +576,7 @@ au BufWrite *.sh :Autoformat
 au BufWrite *.py :Autoformat
 au BufWrite *.go :Autoformat
 au BufWrite *.bats :Autoformat
-au BufWritePost *.adoc silent execute ':!type asciidoctor >/dev/null 2>&1 && mkdir -p $HOME/.asciidoctor/"%" && asciidoctor --quiet -o $HOME/.asciidoctor/index.html "%"'
+au BufWritePost *.adoc silent execute ':!type asciidoctor >/dev/null 2>&1 && mkdir -p $HOME/.asciidoctor/"%" && asciidoctor -r asciidoctor-diagrama --quiet -o $HOME/.asciidoctor/index.html "%"'
 
 let g:formatdef_my_custom_sh = '"shfmt -i 4"'
 let g:formatters_sh = ['my_custom_sh']
