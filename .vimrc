@@ -689,3 +689,5 @@ highlight SignColumn ctermbg=242
 highlight GitGutterAdd ctermfg=white ctermbg=2
 highlight GitGutterDelete ctermfg=white ctermbg=red
 highlight GitGutterChange ctermfg=black ctermbg=3
+
+source ~/.vimrc_after
