@@ -26,7 +26,7 @@ alias gcl='git clone'
 alias gr='git restore'
 alias gc='git clean -f .'
 alias gcb='git checkout -b '
-alias gcf='git branch -a | fzf | sed "s/*//" | sed "s%remotes/origin/%%" | xargs git checkout'
+alias gcf='git branch -a | fzf | sed "s/*//" | sed "s%remotes/origin/%%" | xargs -I {} git checkout {} --'
 
 alias ff='ff -tree'
 
