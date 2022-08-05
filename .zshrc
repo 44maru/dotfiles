@@ -283,6 +283,16 @@ bindkey '^]' fzf-cd # ctrl + ]
 #export MANPATH="$HOME/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
 #export INFOPATH="$HOME/.linuxbrew/share/info:${INFOPATH:-}";
 
+#----------------------
+# asdf
+#----------------------
+ASDF_DIR=$HOME/.asdf
+[ -f ${ASDF_DIR}/asdf.sh ] && {
+    source ${ASDF_DIR}/asdf.sh
+    fpath=(${ASDF_DIR}/completions $fpath)
+    autoload -Uz compinit && compinit
+}
+
 source ~/.aliasrc
 source ~/.zshrc_func
 source ~/.zshrc_after
