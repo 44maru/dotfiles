@@ -73,10 +73,18 @@ function install_linuxbrew() {
     }
 }
 
+function install_asdf() {
+    which asdf >/dev/null || {
+        echo "=== install asdf ==="
+        git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+    }
+}
+
 function install_utility_modules() {
     install_python_modules
     install_go_modules
     install_fzf
+    install_asdf
     #install_linuxbrew
 
     # https://askubuntu.com/questions/1290262/unable-to-install-bat-error-trying-to-overwrite-usr-crates2-json-which
