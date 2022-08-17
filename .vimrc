@@ -2,6 +2,9 @@ syntax on
 
 set cursorline
 
+" ハイフンを単語認識境界文字から除外
+setlocal iskeyword+=-
+
 if !has('nvim')
     " Enable Alt + m as <A-m>
     execute "set <A-m>=\em"
@@ -167,7 +170,9 @@ nmap <Leader>w,    <C-w>,
 let g:toggle_window_size = 0
 function! ToggleWindowSize()
   if g:toggle_window_size == 1
+    exec "NERDTree"
     exec "normal \<C-w>="
+    exec "normal \<C-w>w"
     let g:toggle_window_size = 0
   else
     :resize
@@ -175,7 +180,7 @@ function! ToggleWindowSize()
     let g:toggle_window_size = 1
   endif
 endfunction
-nnoremap W :call ToggleWindowSize()<CR>
+nnoremap ! :call ToggleWindowSize()<CR>
 
 "-----------------------
 " terminal
