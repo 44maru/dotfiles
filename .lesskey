@@ -1,6 +1,8 @@
 #command
 h left-scroll
 l right-scroll
+0 no-scroll
+$ end-scroll
 
 #env
 LESS = -R -M -x4 --shift 2
