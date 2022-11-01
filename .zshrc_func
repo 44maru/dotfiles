@@ -7,6 +7,19 @@ function gitcloneurl() {
     test -f /usr/bin/xsel && echo $url | xsel -bi
 }
 
+function gitpull() {
+    local current_branch=`git symbolic-ref --short HEAD | sed 's%heads/%%'`
+
+    # tag参照していてブランチが空の場合
+    [ "$current_branch" = "" ] && {
+        current_branch=`git tag --points-at`
+        echo "ERROR: ${current_branch} is not branch but tag"
+        exit 1
+    }
+    git branch --set-upstream-to=origin/${current_branch} ${current_branch}
+    git pull -p
+}
+
 function giturl() {
     local filename=$(basename $1)
     local linenum=$2
