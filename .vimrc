@@ -466,6 +466,8 @@ endif
 let g:ackprg = "ag --nogroup --nocolor --column"
 cnoreabbrev Ack Ack!
 nnoremap <expr> <C-h> ':Ag! ' . expand("<cword>") . '<CR>'
+" 現在開いているファイル名でgrep
+nnoremap <expr> <F1> ':Ag! ' . expand("%:t") . '<CR>'
 
 " For pyflakes color
 highlight clear SpellBad
