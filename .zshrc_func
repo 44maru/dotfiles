@@ -14,7 +14,7 @@ function gitpull() {
     [ "$current_branch" = "" ] && {
         current_branch=`git tag --points-at`
         echo "ERROR: ${current_branch} is not branch but tag"
-        exit 1
+        return 1
     }
     git branch --set-upstream-to=origin/${current_branch} ${current_branch}
     git pull -p
