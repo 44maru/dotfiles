@@ -17,6 +17,7 @@ alias watch='watch '
 
 alias gs='git status'
 alias gb='git --no-pager branch -a'
+alias gbd='git branch -D'
 alias gd='git diff'
 alias ga='git add'
 alias gm='git commit -m'
