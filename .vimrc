@@ -3,7 +3,7 @@ syntax on
 set cursorline
 
 " ハイフンを単語認識境界文字から除外
-setlocal iskeyword+=-
+set iskeyword+=-
 
 if !has('nvim')
     " Enable Alt + m as <A-m>
