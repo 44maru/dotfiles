@@ -697,4 +697,9 @@ highlight GitGutterAdd ctermfg=white ctermbg=2
 highlight GitGutterDelete ctermfg=white ctermbg=red
 highlight GitGutterChange ctermfg=black ctermbg=3
 
+"--------------------
+" coc
+"--------------------
+let g:coc_disable_startup_warning = 1
+
 source ~/.vimrc_after
