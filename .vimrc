@@ -698,6 +698,12 @@ highlight GitGutterDelete ctermfg=white ctermbg=red
 highlight GitGutterChange ctermfg=black ctermbg=3
 
 "--------------------
+" ap/vim-buftabline
+"--------------------
+" tabのファイル名の前に番号を付与
+let g:buftabline_numbers = 2
+
+"--------------------
 " coc
 "--------------------
 let g:coc_disable_startup_warning = 1
