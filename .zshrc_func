@@ -78,3 +78,9 @@ function installgo() {
     tar vfzx go-${go_version}.tar.gz -C go-${go_version} --strip-components 1
     ln -sf go-${go_version} go
 }
+
+function installlemonade() {
+    go get -d github.com/lemonade-command/lemonade
+    cd $HOME/go/pkg/mod/github.com/lemonade-command/lemonade@v1.1.2
+    make install
+}
