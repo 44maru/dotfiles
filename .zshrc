@@ -153,7 +153,10 @@ export PIPENV_VENV_IN_PROJECT=true
 #-----------------------------------------------
 # Golang
 #-----------------------------------------------
+# system go
 export PATH=$HOME/go/bin:$PATH
+# additional installed go
+export PATH=$HOME/.local/go/bin:$PATH
 
 # ghq
 export GHQPATH=$HOME/dev
