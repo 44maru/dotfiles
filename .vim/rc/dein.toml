@@ -114,3 +114,6 @@ build = './install --bin'
 
 [[plugins]]
 repo = "junegunn/fzf.vim"
+
+[[plugins]]
+repo = 'skywind3000/asyncrun.vim'
