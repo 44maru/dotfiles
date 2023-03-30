@@ -230,6 +230,9 @@ zle -N __cd_up;   bindkey '^o' __cd_up
 # fzf
 #-------------------
 [ -f ~/.fzf.zsh ] && {
+    # systemにfzfがインストールされているとバイナリはsystem, 設定はlocalのものが適用され正しく動作しない可能性があるので明示的に
+    # localを優先するようPATHを更新
+    export PATH=$HOME/.fzf/bin:$PATH
     source ~/.fzf.zsh
     export FZF_DEFAULT_OPTS='--height 40% --reverse --border --ansi'
     export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
