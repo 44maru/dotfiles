@@ -91,11 +91,24 @@ function install_utility_modules() {
     # sudo apt install --fix-broken -o Dpkg::Options::="--force-overwrite" ripgrep bat
 }
 
+function setup_nvim() {
+    echo "=== setup nvim ==="
+    curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o "${HOME}/.my_tools/nvim"
+    chmod +x "${HOME}/.my_tools/nvim"
+
+    mkdir -p "${HOME}/.config/nvim"
+    cd "${HOME}/.config/nvim/" || exit 1
+    rm -f init.vim ftplugin
+    ln -s "${HOME}/.vimrc" init.vim
+    ln -s "${HOME}/.vim/ftplugin" .
+}
+
 function main() {
     mk_dotfiles_link
     mk_ssh_config
     setup_lesskey
     install_utility_modules
+    setup_nvim
 }
 
 main
