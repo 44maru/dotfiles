@@ -70,9 +70,13 @@ nnoremap m :set mouse=a<CR>
 nnoremap <S-m> :set mouse-=a<CR> 
 "set mouse=a
 "set mouse=n
-" vimの場合、mouse ON時に、windowを幅をマウスで調整するには下記設定が必要
+
 if !has('nvim')
+    " vimの場合、mouse ON時に、windowを幅をマウスで調整するには下記設定が必要
     set ttymouse=xterm2
+else
+    " nvimの場合、mouseがデフォルトでONなので無効化
+    set mouse=
 endif
 
 "===============================================
