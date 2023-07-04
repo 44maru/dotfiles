@@ -712,4 +712,11 @@ let g:buftabline_numbers = 2
 "--------------------
 let g:coc_disable_startup_warning = 1
 
+"--------------------
+" petertriho/nvim-scrollbar
+"--------------------
+if has('nvim')
+    lua require("scrollbar").setup()
+endif
+
 source ~/.vimrc_after
