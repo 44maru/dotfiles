@@ -73,6 +73,18 @@ function install_linuxbrew() {
     }
 }
 
+function install_nodejs() {
+    which nvm >/dev/null || {
+        echo "=== install nvm ==="
+        curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh -o /tmp/install_nvm.sh
+        bash /tmp/install_nvm.sh
+        export NVM_DIR="${HOME}/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && source "${NVM_DIR}/nvm.sh"                   # This loads nvm
+        [ -s "$NVM_DIR/bash_completion" ] && source "${NVM_DIR}/bash_completion" # This loads nvm bash_completion
+        nvm install --lts
+    }
+}
+
 function install_asdf() {
     which asdf >/dev/null || {
         echo "=== install asdf ==="
@@ -85,6 +97,7 @@ function install_utility_modules() {
     install_go_modules
     install_fzf
     install_asdf
+    install_nodejs
     #install_linuxbrew
 
     # https://askubuntu.com/questions/1290262/unable-to-install-bat-error-trying-to-overwrite-usr-crates2-json-which
