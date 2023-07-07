@@ -719,4 +719,5 @@ if has('nvim')
     lua require("scrollbar").setup()
 endif
 
+source ~/.vim/vimrc_coc
 source ~/.vimrc_after
