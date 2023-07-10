@@ -92,12 +92,20 @@ function install_asdf() {
     }
 }
 
+function install_lsp() {
+    which npm >/dev/null && {
+        echo "=== install LSP (npm i -g bash-language-server) ==="
+        npm i -g bash-language-server
+    }
+}
+
 function install_utility_modules() {
     install_python_modules
     install_go_modules
     install_fzf
     install_asdf
     install_nodejs
+    install_lsp
     #install_linuxbrew
 
     # https://askubuntu.com/questions/1290262/unable-to-install-bat-error-trying-to-overwrite-usr-crates2-json-which
