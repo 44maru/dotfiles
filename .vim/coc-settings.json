@@ -1,4 +1,6 @@
 {
+  "clangd.arguments": ["--log", "verbose"],
+  "clangd.trace.server": "verbose",
   "http.proxy": "http://PROXY_HOST:8080",
   "suggest.enablePreview": true,
   "suggest.noselect": false,
@@ -13,6 +15,12 @@
       "rootPatterns": ["go.mod"],
       "trace.server": "verbose",
       "filetypes": ["go"]
+    },
+    "bash":{
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
     }
   },
   "jedi": {
