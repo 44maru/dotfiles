@@ -94,9 +94,6 @@ rev = 'release'
 repo = 'dense-analysis/ale'
 
 [[plugins]]
-repo = 'sebdah/vim-delve'
-
-[[plugins]]
 repo = 'cespare/vim-toml'
 
 [[plugins]]
