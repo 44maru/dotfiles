@@ -190,6 +190,9 @@ nnoremap <silent><nowait> <C-c>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <C-c>p  :<C-u>CocListResume<CR>
 
+" Show Lungage server log (type 'clog' on command mode)
+cnoremap clog CocCommand workspace.showOutput
+
 "--------------------
 " vista.vim
 "--------------------
