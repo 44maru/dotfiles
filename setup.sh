@@ -40,11 +40,11 @@ function install_python_modules() {
 function install_go_modules() {
     test -e /usr/bin/go && {
         echo "=== install ghq ==="
-        go get -v github.com/motemen/ghq
+        go install github.com/x-motemen/ghq@latest
         echo "=== install goimports ==="
-        go get -v golang.org/x/tools/cmd/goimports
+        go install golang.org/x/tools/cmd/goimports@latest
         echo "=== install gopls ==="
-        go get -v golang.org/x/tools/gopls
+        go install golang.org/x/tools/gopls@latest
     }
 }
 
