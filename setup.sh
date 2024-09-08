@@ -114,14 +114,25 @@ function install_utility_modules() {
 
 function setup_nvim() {
     echo "=== setup nvim ==="
-    curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o "${HOME}/.my_tools/nvim"
-    chmod +x "${HOME}/.my_tools/nvim"
+    mkdir -p ${HOME}/tmp
+    curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o "${HOME}/tmp/nvim"
+    chmod +x "${HOME}/tmp/nvim"
+    ${HOME}/tmp/nvim --appimage-extract
+    mv squashfs-root/usr/bin/nvim ${HOME}/.squashfs-root
+    ln -sf ${HOME}/.squashfs-root/AppRun ${HOME}/.my_tools/nvim
+    rm -f ${HOME}/tmp/nvim
 
-    mkdir -p "${HOME}/.config/nvim"
-    cd "${HOME}/.config/nvim/" || exit 1
-    rm -f init.vim ftplugin
-    ln -s "${HOME}/.vimrc" init.vim
-    ln -s "${HOME}/.vim/ftplugin" .
+    # setup lazyvim
+    # required
+    mv ~/.config/nvim{,.bak}
+
+    # optional but recommended
+    mv ~/.local/share/nvim{,.bak}
+    mv ~/.local/state/nvim{,.bak}
+    mv ~/.cache/nvim{,.bak}
+
+    git clone https://github.com/LazyVim/starter ~/.config/nvim
+    rm -rf ~/.config/nvim/.git
 }
 
 function main() {
