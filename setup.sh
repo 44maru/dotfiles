@@ -118,7 +118,8 @@ function setup_nvim() {
     curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o "${HOME}/tmp/nvim"
     chmod +x "${HOME}/tmp/nvim"
     ${HOME}/tmp/nvim --appimage-extract
-    mv squashfs-root/usr/bin/nvim ${HOME}/.squashfs-root
+    rm -rf ${HOME}/.squashfs-root
+    mv squashfs-root ${HOME}/.squashfs-root
     ln -sf ${HOME}/.squashfs-root/AppRun ${HOME}/.my_tools/nvim
     rm -f ${HOME}/tmp/nvim
     ln -sf ${PWD}/.nvimrc ${HOME}/.nvimrc
