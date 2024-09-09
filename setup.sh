@@ -121,8 +121,10 @@ function setup_nvim() {
     mv squashfs-root/usr/bin/nvim ${HOME}/.squashfs-root
     ln -sf ${HOME}/.squashfs-root/AppRun ${HOME}/.my_tools/nvim
     rm -f ${HOME}/tmp/nvim
+    ln -sf ${PWD}/.nvimrc ${HOME}/.nvimrc
+}
 
-    # setup lazyvim
+function setup_lazyvim() {
     # required
     mv ~/.config/nvim{,.bak}
 
@@ -133,6 +135,14 @@ function setup_nvim() {
 
     git clone https://github.com/LazyVim/starter ~/.config/nvim
     rm -rf ~/.config/nvim/.git
+
+    for lua in $(ls ./.config/nvim/lua/config/*); do
+        ln -sf ${PWD}/${lua} ${HOME}/${lua}
+    done
+
+    for lua in $(ls ./.config/nvim/lua/plugins/*); do
+        ln -sf ${PWD}/${lua} ${HOME}/${lua}
+    done
 }
 
 function main() {
@@ -141,6 +151,7 @@ function main() {
     setup_lesskey
     install_utility_modules
     setup_nvim
+    setup_lazyvim
 }
 
 main
