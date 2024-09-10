@@ -17,6 +17,7 @@ vim.cmd("source ~/.nvimrc")
 
 vim.keymap.set("n", "<Leader>s", "<cmd>lua require('flash').jump()<CR>")
 vim.keymap.set("n", "<Leader>w", "<cmd>WinResizerStartResize<cr>")
+vim.keymap.set("n", "<M-o>", "<cmd>SymbolsOutline<cr>")
 --vim.keymap.set("n", "?", "<Cmd>lua require('which-key').show(' ', {mode = 'v', auto = true})<CR>")
 vim.keymap.set("n", "<C-k>", function()
   require("telescope.builtin").lsp_definitions({ reuse_win = true })

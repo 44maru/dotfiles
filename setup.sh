@@ -141,9 +141,8 @@ function setup_lazyvim() {
         ln -sf ${PWD}/${lua} ${HOME}/${lua}
     done
 
-    for lua in $(ls ./.config/nvim/lua/plugins/*); do
-        ln -sf ${PWD}/${lua} ${HOME}/${lua}
-    done
+    rm -rf ${HOME}/.config/nvim/lua/plugins
+    ln -sf ${PWD}/.config/nvim/lua/plugins ${lua} ${HOME}/.config/nvim/lua/plugins
 }
 
 function main() {

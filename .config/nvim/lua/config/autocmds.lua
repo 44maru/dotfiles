@@ -6,6 +6,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     vim.cmd("Neotree toggle")
     vim.cmd("wincmd l")
+    require("symbols-outline").setup()
   end,
   --command = "set nornu nonu | Neotree toggle",
 })
