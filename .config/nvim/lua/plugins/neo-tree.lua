@@ -8,6 +8,7 @@ return {
     },
   },
   opts = {
+    close_if_last_window = true,
     window = {
       mappings = {
         ["o"] = "open",
