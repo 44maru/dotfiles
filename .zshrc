@@ -236,6 +236,8 @@ zle -N __cd_up;   bindkey '^o' __cd_up
     source ~/.fzf.zsh
     export FZF_DEFAULT_OPTS='--height 40% --reverse --border --ansi'
     export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+    export TMUX_FZF_OPTIONS="-p -w 80% -h 80% -m"
+    export TMUX_FZF_PREVIEW=1
     # ctrl+space(ctrl+v -> ctrl+spaceで入力)でfzf-cd-widgetを実行
     bindkey '^@' fzf-cd-widget
 
