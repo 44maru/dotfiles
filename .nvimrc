@@ -13,9 +13,8 @@ nnoremap <C-s> :w<CR>
 
 set noignorecase
 
-if has('nvim')
-    set termguicolors
-endif
+" lazyvimのcolorschemがコメントが暗すぎて見づらいので下記で対応
+hi Comment gui=NONE
 
 "===================
 " Indent
