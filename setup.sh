@@ -32,9 +32,9 @@ function setup_lesskey() {
 function install_python_modules() {
   which pip3 >/dev/null && {
     echo "install python modules"
-    pip3 install --user autopep8
-    pip3 install --user "pydantic==1.8.2"
-    pip3 install --user jedi-language-server
+    pip3 install --user black
+    #pip3 install --user "pydantic==1.8.2"
+    #pip3 install --user jedi-language-server
   }
 }
 
