@@ -26,6 +26,7 @@ function mk_dotfiles_link() {
 function setup_lesskey() {
   cd $HOME
   lesskey
+  cd -
 }
 
 function install_python_modules() {
