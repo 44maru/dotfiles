@@ -143,7 +143,7 @@ function setup_lazyvim() {
   done
 
   rm -rf ${HOME}/.config/nvim/lua/plugins
-  ln -sf ${PWD}/.config/nvim/lua/plugins ${lua} ${HOME}/.config/nvim/lua/plugins
+  ln -sf ${PWD}/.config/nvim/lua/plugins ${HOME}/.config/nvim/lua/plugins
 }
 
 function main() {
