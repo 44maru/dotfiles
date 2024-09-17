@@ -48,9 +48,9 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   desc = "Auto-format Python files after saving",
   callback = function()
     local fileName = vim.api.nvim_buf_get_name(0)
-    vim.cmd("silent !autopep8 --aggressive --aggressive --in-place " .. fileName)
-    --vim.cmd(":silent !black --preview -q " .. fileName)
-    --vim.cmd(":silent !isort --profile black --float-to-top -q " .. fileName)
+    vim.cmd(":silent !black --preview --quiet " .. fileName)
+    --vim.cmd(":silent !isort --profile black --float-to-top --quiet " .. fileName)
+    vim.cmd(":silent !isort --profile black --quiet " .. fileName)
     --vim.cmd(":silent !docformatter --in-place --black " .. fileName)
   end,
   --group = autocmd_group,
