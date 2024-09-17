@@ -13,6 +13,9 @@ nnoremap <C-s> :w<CR>
 
 set noignorecase
 
+" 行番号を相対番号で表示しない(絶対番号で表示)
+set norelativenumber
+
 " lazyvimのcolorschemがコメントが暗すぎて見づらいので下記で対応
 hi Comment gui=NONE
 
