@@ -53,6 +53,9 @@ if type kubectl &>/dev/null; then
             alias -g Y='-o yaml | batcat --language yaml'
         }
     fi
+
+    alias kc_all_api_resources='kubectl api-resources'
+    alias kc_all_sub_resources='kubectl get --raw="/apis/apps/v1" | jq ".resources[].name" | grep /; kubectl get --raw="/api/v1" | jq ".resources[].name" | grep /'
 fi
 
 #-------------------
