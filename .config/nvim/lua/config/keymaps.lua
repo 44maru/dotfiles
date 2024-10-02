@@ -26,6 +26,6 @@ end)
 -- 下記はなぜかleaderをつけないと利かない
 vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>")
 vim.keymap.set("n", "<Leader>gr", "<cmd>Telescope lsp_references<cr>")
-vim.keymap.set("n", "gi", function()
+vim.keymap.set("n", "<Leader>gi", function()
   require("telescope.builtin").lsp_implementations({ reuse_win = true })
 end)
