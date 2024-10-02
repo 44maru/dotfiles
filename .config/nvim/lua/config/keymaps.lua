@@ -10,6 +10,7 @@ vim.keymap.set("i", "<C-j>", "<ESC>")
 -- flashのキーバインド無効化
 vim.cmd([[
   unmap s
+  unmap t
   unmap <c-e>
 ]])
 
