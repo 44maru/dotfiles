@@ -10,6 +10,9 @@ else
     alias vimzsh='vim ~/.zshrc'
 fi
 
+# tmux起動時にsession名を指定できるようにする
+alias tmuxnew='tmux new-session -s'
+
 alias sourcezsh='source ~/.zshrc'
 
 # watchコマンドにalias登録したコマンドを利用できるように、watchコマンドにスペースを追加したaliasを登録
