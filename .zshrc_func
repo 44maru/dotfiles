@@ -46,6 +46,11 @@ function tsh() {
 # Required on kitty session
 # and set preference : Terminal > Remote-controlled > Windows clipboard
 function clipboard() {
+    if type lemonade &>/dev/null; then
+      lemonade copy --port=44444
+      return
+    fi
+
     line=`cat`
     if [ -v TMUX -o -v ON_TMUX ]; then
       # https://github.com/tmux/tmux/issues/636#issuecomment-264976452
@@ -80,9 +85,10 @@ function installgo() {
 }
 
 function installlemonade() {
-    go get -d github.com/lemonade-command/lemonade
-    cd $HOME/go/pkg/mod/github.com/lemonade-command/lemonade@v1.1.2
-    make install
+    curl -L -O https://github.com/lemonade-command/lemonade/releases/download/v1.1.1/lemonade_linux_amd64.tar.gz
+    tar vfzx lemonade_linux_amd64.tar.gz
+    mv lemonade ~/.my_tools
+    rm -f lemonade_linux_amd64.tar.gz
 }
 
 function kubectl_syslog() {
