@@ -17,6 +17,7 @@ vim.cmd([[
 vim.cmd("source ~/.nvimrc")
 
 vim.keymap.set("n", "<Leader>s", "<cmd>lua require('flash').jump()<CR>")
+vim.keymap.set("n", "<Leader>n", "<cmd>Neotree toggle<CR>")
 vim.keymap.set("n", "<Leader>w", "<cmd>WinResizerStartResize<cr>")
 vim.keymap.set("n", "<M-o>", "<cmd>SymbolsOutline<cr>")
 --vim.keymap.set("n", "?", "<Cmd>lua require('which-key').show(' ', {mode = 'v', auto = true})<CR>")
