@@ -55,3 +55,12 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   end,
   --group = autocmd_group,
 })
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  pattern = { "*.sh" },
+  desc = "Auto-format shell files after saving",
+  callback = function()
+    local fileName = vim.api.nvim_buf_get_name(0)
+    vim.cmd(":silent !shfmt -i 4 -w " .. fileName)
+  end,
+})
