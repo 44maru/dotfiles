@@ -145,7 +145,7 @@ function install_zsh_local() {
 
     cd ${work_dir}
     mkdir -p ${HOME}/.local/zsh
-    #curl -L https://sourceforge.net/projects/zsh/files/zsh/5.9/zsh-5.9.tar.xz >zsh-5.9.tar.xz
+    curl -L https://sourceforge.net/projects/zsh/files/zsh/5.9/zsh-5.9.tar.xz >zsh-5.9.tar.xz
     tar vfx zsh-5.9.tar.xz
     cd zsh-5.9
     ./configure \
