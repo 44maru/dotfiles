@@ -128,20 +128,20 @@ function install_zsh_local() {
 
     set -e
 
-    #mkdir -p ${work_dir}
+    mkdir -p ${work_dir}
 
-    #cd ${work_dir}
-    #mkdir -p ${HOME}/.local/ncurses
-    #wget -nc ftp://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz
-    #tar vfzx ncurses-6.2.tar.gz
-    #cd ncurses-6.2
-    #./configure \
-    #    --prefix=$HOME/.local/ncurses \
-    #    --without-cxx-binding \
-    #    --with-shared \
-    #    --enable-widec
-    #make
-    #make install
+    cd ${work_dir}
+    mkdir -p ${HOME}/.local/ncurses
+    wget -nc ftp://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz
+    tar vfzx ncurses-6.2.tar.gz
+    cd ncurses-6.2
+    ./configure \
+        --prefix=$HOME/.local/ncurses \
+        --without-cxx-binding \
+        --with-shared \
+        --enable-widec
+    make
+    make install
 
     cd ${work_dir}
     mkdir -p ${HOME}/.local/zsh
