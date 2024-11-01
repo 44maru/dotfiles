@@ -109,10 +109,15 @@ function install_utility_modules() {
     install_nodejs
     install_lsp
     install_lazygit
+    install_tmux_plugin
     #install_linuxbrew
 
     # https://askubuntu.com/questions/1290262/unable-to-install-bat-error-trying-to-overwrite-usr-crates2-json-which
     # sudo apt install --fix-broken -o Dpkg::Options::="--force-overwrite" ripgrep bat
+}
+
+function install_tmux_plugin() {
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
 
 function install_lazygit() {
