@@ -24,6 +24,7 @@ vim.keymap.set("n", "<M-o>", "<cmd>SymbolsOutline<cr>")
 vim.keymap.set("n", "<C-k>", function()
   require("telescope.builtin").lsp_definitions({ reuse_win = true })
 end)
+vim.keymap.set("n", "<Leader>G", "<cmd>Telescope live_grep<cr>")
 -- 下記はなぜかleaderをつけないと利かない
 vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>")
 vim.keymap.set("n", "<Leader>gr", "<cmd>Telescope lsp_references<cr>")
