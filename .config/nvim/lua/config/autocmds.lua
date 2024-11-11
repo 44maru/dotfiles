@@ -61,6 +61,6 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   desc = "Auto-format shell files after saving",
   callback = function()
     local fileName = vim.api.nvim_buf_get_name(0)
-    vim.cmd(":silent !shfmt -i 4 -w " .. fileName)
+    vim.cmd(":silent !shfmt -i 4 -w `readlink -f " .. fileName .. "`")
   end,
 })
