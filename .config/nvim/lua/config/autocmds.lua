@@ -62,5 +62,6 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   callback = function()
     local fileName = vim.api.nvim_buf_get_name(0)
     vim.cmd(":silent !shfmt -i 4 -w `readlink -f " .. fileName .. "`")
+    vim.cmd(":silent edit")
   end,
 })
