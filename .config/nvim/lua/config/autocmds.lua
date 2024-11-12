@@ -10,6 +10,18 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
   --command = "set nornu nonu | Neotree toggle",
 })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  pattern = "*.go",
+  callback = function()
+    require("telescope").setup({
+      defaults = {
+        file_ignore_patterns = { ".*_test.go" },
+      },
+    })
+  end,
+})
+
 vim.api.nvim_create_autocmd("BufEnter", {
   command = "set nu",
 })
