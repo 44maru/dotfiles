@@ -141,6 +141,7 @@ SPROMPT="correct: %R -> %r ? "
 
 typeset -ga chpwd_functions
 
+export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.my_tools:$PATH
 
 #-----------------------------------------------
