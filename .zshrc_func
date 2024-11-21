@@ -74,14 +74,14 @@ function vim() {
     #   tmux set-window-option pane-border-format "#P: #{pane_title}"
     #   tmux set-window-option pane-border-status top
     #tmux select-pane -T vim
-    printf '\003]2;%s\033\\' 'vim'
+    printf '\033]2;%s\033\\' 'vim'
     if type nvim &>/dev/null; then
         nvim $@
     else
         command vim $@
     fi
     #tmux select-pane -T novim
-    printf '\003]2;%s\033\\' 'novim'
+    printf '\033]2;%s\033\\' 'novim'
 }
 
 function install_zsh_local() {
