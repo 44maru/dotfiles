@@ -109,6 +109,8 @@ function install_utility_modules() {
     install_nodejs
     install_lsp
     install_lazygit
+    install_ripgrep
+    install_batcat
     install_tmux_plugin
     #install_linuxbrew
 
