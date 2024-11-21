@@ -65,13 +65,23 @@ function clipboard() {
 }
 
 function vim() {
-    [ -v TMUX -o -v ON_TMUX ] && tmux select-pane -T vim
+    # sshでtmuxのソケットをポートフォワードした場合に
+    # ssh先で下記tmux select-paneコマンドが反映さねないことがある
+    # そのため、printfによる方法でpaneの名前を変更している
+    # ちなみにpaneの名前は以下のコマンドで確認可能
+    #   tmux display-message -p '#{pane_title}'
+    # または
+    #   tmux set-window-option pane-border-format "#P: #{pane_title}"
+    #   tmux set-window-option pane-border-status top
+    #tmux select-pane -T vim
+    printf '\003]2;%s\033\\' 'vim'
     if type nvim &>/dev/null; then
         nvim $@
     else
         command vim $@
     fi
-    [ -v TMUX -o -v ON_TMUX ] && tmux select-pane -T novim
+    #tmux select-pane -T novim
+    printf '\003]2;%s\033\\' 'novim'
 }
 
 function install_zsh_local() {
