@@ -74,6 +74,45 @@ function vim() {
     [ -v TMUX -o -v ON_TMUX ] && tmux select-pane -T novim
 }
 
+function install_zsh_local() {
+    local work_dir=${HOME}/work/zsh-install
+
+    set -e
+
+    mkdir -p ${work_dir}
+
+    cd ${work_dir}
+    mkdir -p ${HOME}/.local/ncurses
+    wget -nc ftp://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz
+    tar vfzx ncurses-6.2.tar.gz
+    cd ncurses-6.2
+    ./configure \
+        --prefix=$HOME/.local/ncurses \
+        --without-cxx-binding \
+        --with-shared \
+        --enable-widec
+    make
+    make install
+
+    cd ${work_dir}
+    mkdir -p ${HOME}/.local/zsh
+    curl -L https://sourceforge.net/projects/zsh/files/zsh/5.9/zsh-5.9.tar.xz >zsh-5.9.tar.xz
+    tar vfx zsh-5.9.tar.xz
+    cd zsh-5.9
+    ./configure \
+        --prefix=$HOME/.local/zsh \
+        --enable-cflags="-I $HOME/.local/ncurses/include" \
+        --enable-cppflags="-I $HOME/.local/ncurses/include" \
+        --enable-ldflags="-L $HOME/.local/ncurses/lib" \
+        --enable-multibyte \
+        --enable-locale \
+        --with-tcsetpgrp
+    make
+    make install
+
+    set +e
+}
+
 function installgo() {
     local go_version=1.17.13
     mkdir -p ${HOME}/.local
