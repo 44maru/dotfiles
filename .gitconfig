@@ -30,9 +30,9 @@
 [ghq]
 	root = /home/ubuntu/dev
 [delta]
-    diff-so-fancy = true
+    #diff-so-fancy = true
     keep-plus-minus-markers = true
-    minus-emph-style = "bold white 89"
+    #minus-emph-style = "bold white 89"
     plus-emph-style = "bold white 21"
     hunk-header-style = "omit"
     line-numbers = true
