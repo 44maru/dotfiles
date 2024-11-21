@@ -128,6 +128,26 @@ function install_lazygit() {
     mv lazygit ./.my_tools
 }
 
+function install_ripgrep() {
+    local version=14.1.1
+
+    echo "install ripgrep"
+    curl -LO https://github.com/BurntSushi/ripgrep/releases/download/${version}/ripgrep-${version}-x86_64-unknown-linux-musl.tar.gz
+    tar vfzx ripgrep-${version}-x86_64-unknown-linux-musl.tar.gz
+    mv ripgrep-${version}-x86_64-unknown-linux-musl/rg ./.my_tools
+    rm -rf ripgrep-${version}-x86_64-unknown-linux-musl*
+}
+
+function install_batcat() {
+    local version=v0.24.0
+
+    echo "install batcat"
+    curl -LO https://github.com/sharkdp/bat/releases/download/${version}/bat-${version}-x86_64-unknown-linux-musl.tar.gz
+    tar vfzx bat-${version}-x86_64-unknown-linux-musl.tar.gz
+    mv bat-${version}-x86_64-unknown-linux-musl/bat ./.my_tools
+    rm -rf bat-${version}-x86_64-unknown-linux-musl*
+}
+
 function setup_nvim() {
     echo "=== setup nvim ==="
     mkdir -p ${HOME}/tmp

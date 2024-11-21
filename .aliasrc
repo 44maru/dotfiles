@@ -52,9 +52,9 @@ if type kubectl &>/dev/null; then
         alias -g W='-o wide'
         alias -g Y='-o yaml'
         alias -g J='-o json | jq .'
-        [ -f /usr/bin/batcat ] && {
-            alias -g Y='-o yaml | batcat --language yaml'
-        }
+        if type bat &>/dev/null; then
+            alias -g Y='-o yaml | bat --language yaml'
+        fi
     fi
 
     alias kc_all_api_resources='kubectl api-resources'
@@ -64,9 +64,9 @@ fi
 #-------------------
 # bat
 #-------------------
-[ -f /usr/bin/batcat ] && {
-    alias cat=batcat
-}
+if type bat &>/dev/null; then
+    alias cat=bat
+fi
 
 #-------------------
 # fd
