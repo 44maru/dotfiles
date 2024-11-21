@@ -4,7 +4,7 @@
 function gitcloneurl() {
     local url=`git remote -v | head -n1 | awk '{print $2}'`
     echo $url | clipboard
-    test -f /usr/bin/xsel && echo $url | xsel -bi
+    #test -f /usr/bin/xsel && echo $url | xsel -bi
 }
 
 function gitpull() {
