@@ -12,6 +12,7 @@ return {
     window = {
       mappings = {
         ["o"] = "open",
+        ["O"] = "expand_all_nodes",
       },
     },
   },
