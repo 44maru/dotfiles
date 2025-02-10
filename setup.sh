@@ -153,7 +153,7 @@ function install_batcat() {
 function setup_nvim() {
     echo "=== setup nvim ==="
     mkdir -p ${HOME}/tmp
-    curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o "${HOME}/tmp/nvim"
+    curl -L https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage -o "${HOME}/tmp/nvim"
     chmod +x "${HOME}/tmp/nvim"
     ${HOME}/tmp/nvim --appimage-extract
     rm -rf ${HOME}/.squashfs-root
