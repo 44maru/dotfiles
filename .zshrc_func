@@ -12,7 +12,7 @@ function gitpull() {
 
     # tag参照していてブランチが空の場合
     [ "$current_branch" = "" ] && {
-        current_branch=`git tag --points-at`
+        current_branch=`git tag --points-at | tail -n1`
         echo "ERROR: ${current_branch} is not branch but tag"
         return 1
     }
