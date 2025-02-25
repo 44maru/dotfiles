@@ -35,3 +35,5 @@ vim.keymap.set("n", "<Leader>gr", "<cmd>Telescope lsp_references<cr>")
 vim.keymap.set("n", "<Leader>gi", function()
   require("telescope.builtin").lsp_implementations({ reuse_win = true })
 end)
+-- renameに関してはデフォルトで以下のkeymapが設定されている
+-- { "<leader>cr", vim.lsp.buf.rename, desc - "Rename", has = "rename" }
