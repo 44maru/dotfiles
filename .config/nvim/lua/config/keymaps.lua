@@ -16,6 +16,10 @@ vim.cmd([[
 
 vim.cmd("source ~/.nvimrc")
 
+-- paste from register 0
+vim.keymap.set("n", "Q", '"0p')
+vim.keymap.set("v", "Q", '"0p')
+
 vim.keymap.set("n", "<Leader>s", "<cmd>lua require('flash').jump()<CR>")
 vim.keymap.set("n", "<Leader>n", "<cmd>Neotree toggle<CR>")
 vim.keymap.set("n", "<Leader>w", "<cmd>WinResizerStartResize<cr>")
