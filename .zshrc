@@ -1,7 +1,9 @@
 umask 022
 
 # disable diplay lock by ctrl+s
-stty stop undef
+# 下記をコメントアウトしないと、一部の機能(tmux-fzfのプレビューなど)で以下のメッセージが出力される
+#   stty: 'standard input': Inappropriate ioctl for device
+#stty stop undef
 
 #-----------------------------------------------
 # Base setting
