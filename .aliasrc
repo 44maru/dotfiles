@@ -54,6 +54,8 @@ if type kubectl &>/dev/null; then
         alias -g J='-o json | jq .'
         if type bat &>/dev/null; then
             alias -g Y='-o yaml | bat --language yaml'
+        elif type batcat &>/dev/null; then
+            alias -g Y='-o yaml | batcat --language yaml'
         fi
     fi
 
