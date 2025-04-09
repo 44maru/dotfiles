@@ -20,7 +20,7 @@ vim.cmd("source ~/.nvimrc")
 vim.keymap.set("n", "!", '"0p')
 vim.keymap.set("v", "!", '"0p')
 
-vim.keymap.set("n", "<C-m>", "<cmd>Maximize<CR>")
+vim.keymap.set("n", "<M-m>", "<cmd>Maximize<CR>")
 vim.keymap.set("n", "<Leader>s", "<cmd>lua require('flash').jump()<CR>")
 vim.keymap.set("n", "<Leader>n", "<cmd>Neotree toggle<CR>")
 vim.keymap.set("n", "<Leader>w", "<cmd>WinResizerStartResize<cr>")
