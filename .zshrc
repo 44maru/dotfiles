@@ -313,6 +313,61 @@ ASDF_DIR=$HOME/.asdf
     autoload -Uz compinit && compinit
 }
 
+#----------------------
+# zplug start
+#----------------------
+if [ -d ~/.zplug ]; then
+  source ~/.zplug/init.zsh
+
+  # zsh-vi-mode
+  zplug "jeffreytse/zsh-vi-mode"
+  export KEYTIMEOUT=1
+  export ZVM_VI_ESCAPE_BINDKEY="^J"
+
+  function zle-keymap-select {
+    case $KEYMAP in
+      vicmd)      ZVM_MODE_INDICATOR="%F{yellow}[N]%f" ;;
+      main|viins) ZVM_MODE_INDICATOR="%F{green}[I]%f" ;;
+      *)          ZVM_MODE_INDICATOR="%F{red}[?]%f" ;;
+    esac
+    zle reset-prompt
+  }
+
+  zle -N zle-keymap-select
+
+  PROMPT='
+${ZVM_MODE_INDICATOR} %B%{${fg[red]}%}[%n%{${fg[blue]}%}@%m${WINDOW:+":$WINDOW"}]%{%(?.$fg[blue].$fg[red])%}${vcs_info_msg_0_} [%~]
+%(!.#.$)%{${reset_color}%}%b '
+
+
+  zvm_bindkey vicmd '^]' fzf-cd
+  zvm_bindkey viins '^]' fzf-cd
+
+  bindkey -v
+
+  # プラグインの定義例
+  #zplug "zsh-users/zsh-history-substring-search"
+  #zplug "zsh-users/zsh-syntax-highlighting"
+  #zplug "zsh-users/zsh-autosuggestions"
+
+  # プラグインのインストール確認とインストール
+  if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+      echo; zplug install
+    fi
+  fi
+
+  # プラグインの読み込み
+  zplug load --verbose
+
+fi
+
+#----------------------
+# zplug end
+#----------------------
+
+
 source ~/.aliasrc
 source ~/.zshrc_func
 source ~/.zshrc_after

@@ -29,6 +29,10 @@ function setup_lesskey() {
     cd -
 }
 
+function install_zplug() {
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+}
+
 function install_python_modules() {
     which pip3 >/dev/null && {
         echo "install python modules"
@@ -111,6 +115,7 @@ function install_utility_modules() {
     install_lazygit
     install_ripgrep
     install_batcat
+    install_zplug
     install_tmux_plugin
     #install_linuxbrew
 
