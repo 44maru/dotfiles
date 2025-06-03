@@ -342,6 +342,8 @@ ${ZVM_MODE_INDICATOR} %B%{${fg[red]}%}[%n%{${fg[blue]}%}@%m${WINDOW:+":$WINDOW"}
 
   zvm_bindkey vicmd '^]' fzf-cd
   zvm_bindkey viins '^]' fzf-cd
+  zvm_bindkey vicmd '^o' __cd_up
+  zvm_bindkey viins '^o' __cd_up
 
   bindkey -v
 
