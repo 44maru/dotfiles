@@ -319,7 +319,19 @@ ASDF_DIR=$HOME/.asdf
 if [ -d ~/.zplug ]; then
   source ~/.zplug/init.zsh
 
+  #-----------------------------
+  # zsh-syntax-highlighting
+  #-----------------------------
+  zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+  #-----------------------------
+  # zsh-autosuggestions
+  #-----------------------------
+  zplug "zsh-users/zsh-autosuggestions", defer:2
+
+  #-----------------------------
   # zsh-vi-mode
+  #-----------------------------
   zplug "jeffreytse/zsh-vi-mode"
   export KEYTIMEOUT=1
   export ZVM_VI_ESCAPE_BINDKEY="^J"
