@@ -340,12 +340,7 @@ ${ZVM_MODE_INDICATOR} %B%{${fg[red]}%}[%n%{${fg[blue]}%}@%m${WINDOW:+":$WINDOW"}
 %(!.#.$)%{${reset_color}%}%b '
 
 
-  zvm_bindkey vicmd '^]' fzf-cd
-  zvm_bindkey viins '^]' fzf-cd
-  zvm_bindkey vicmd '^o' __cd_up
-  zvm_bindkey viins '^o' __cd_up
 
-  bindkey -v
 
   # プラグインの定義例
   #zplug "zsh-users/zsh-history-substring-search"
@@ -363,6 +358,12 @@ ${ZVM_MODE_INDICATOR} %B%{${fg[red]}%}[%n%{${fg[blue]}%}@%m${WINDOW:+":$WINDOW"}
   # プラグインの読み込み
   zplug load --verbose
 
+  zvm_bindkey vicmd '^]' fzf-cd
+  zvm_bindkey viins '^]' fzf-cd
+  zvm_bindkey vicmd '^o' __cd_up
+  zvm_bindkey viins '^o' __cd_up
+
+  bindkey -v
 fi
 
 #----------------------
