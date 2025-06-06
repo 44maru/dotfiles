@@ -9,3 +9,18 @@ git:
   allBranchesLogCmd: git log --graph --color=always --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(#a0a0a0 reverse)%h%Creset %C(cyan)%ad%Creset %C(#dd4814)%ae%Creset %C(yellow reverse)%d%Creset %n%C(white bold)%s%Creset%n' --
   branchLogCmd: git log --graph --color=always --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(#a0a0a0 reverse)%h%Creset %C(cyan)%ad%Creset %C(#dd4814)%ae%Creset %C(yellow reverse)%d%Creset %n%C(white bold)%s%Creset%n' {{branchName}} --
 
+customCommands:
+  - key: v
+    command: |
+      git show {{.SelectedCommit.Hash}}:{{.SelectedCommitFile.Name}} | bat -l $(echo {{.SelectedCommitFile.Name}} | sed 's/.*\.//') ||
+      git show {{.SelectedCommit.Hash}}:{{.SelectedCommitFile.Name}} | less -N
+    context: 'commitFiles'
+    description: 'git show'
+    output: terminal
+    subprocess: yes
+  - key: b
+    command: tig blame -- {{.SelectedCommitFile.Name}}
+    context: 'commitFiles'
+    description: 'blame file at tree'
+    output: terminal
+    subprocess: yes
