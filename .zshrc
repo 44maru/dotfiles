@@ -368,7 +368,7 @@ ${ZVM_MODE_INDICATOR} %B%{${fg[red]}%}[%n%{${fg[blue]}%}@%m${WINDOW:+":$WINDOW"}
   fi
 
   # プラグインの読み込み
-  zplug load --verbose
+  zplug load
 
   zvm_bindkey vicmd '^]' fzf-cd
   zvm_bindkey viins '^]' fzf-cd
