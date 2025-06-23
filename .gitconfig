@@ -28,7 +28,7 @@
 [interactive]
     diffFilter = delta --color-only
 [ghq]
-	root = /home/ubuntu/dev
+	root = /home/shishimaru/dev
 [delta]
     #diff-so-fancy = true
     keep-plus-minus-markers = true
@@ -36,6 +36,11 @@
     plus-emph-style = "bold white 21"
     hunk-header-style = "omit"
     line-numbers = true
+    file-style = bold yellow
+    file-decoration-style = bold cyan ul
 
 [include]
     path = ~/.gitconfig_after
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
