@@ -337,6 +337,16 @@ if [ -d ~/.zplug ]; then
   zplug "zsh-users/zsh-autosuggestions", defer:2
 
   #-----------------------------
+  # zsh-completions
+  #-----------------------------
+  zplug "zsh-users/zsh-completions", defer:2
+
+  #-----------------------------
+  # fzf-tab
+  #-----------------------------
+  zplug "Aloxaf/fzf-tab", defer:2
+
+  #-----------------------------
   # zsh-vi-mode
   #-----------------------------
   zplug "jeffreytse/zsh-vi-mode"
