@@ -116,11 +116,16 @@ function install_utility_modules() {
     install_ripgrep
     install_batcat
     install_zplug
+    install_p10k
     install_tmux_plugin
     #install_linuxbrew
 
     # https://askubuntu.com/questions/1290262/unable-to-install-bat-error-trying-to-overwrite-usr-crates2-json-which
     # sudo apt install --fix-broken -o Dpkg::Options::="--force-overwrite" ripgrep bat
+}
+
+function install_p10k() {
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
 }
 
 function install_tmux_plugin() {
