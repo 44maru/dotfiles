@@ -3,77 +3,77 @@
 -- Add any additional autocmds here
 
 vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    vim.cmd("Neotree toggle")
-    vim.cmd("wincmd l")
-    require("symbols-outline").setup()
-  end,
-  --command = "set nornu nonu | Neotree toggle",
+	callback = function()
+		--    vim.cmd("Neotree toggle")
+		--    vim.cmd("wincmd l")
+		require("symbols-outline").setup()
+	end,
+	--command = "set nornu nonu | Neotree toggle",
 })
 
 vim.api.nvim_create_autocmd("VimEnter", {
-  pattern = "*.go",
-  callback = function()
-    require("telescope").setup({
-      defaults = {
-        file_ignore_patterns = { ".*_test.go" },
-      },
-    })
-  end,
+	pattern = "*.go",
+	callback = function()
+		require("telescope").setup({
+			defaults = {
+				file_ignore_patterns = { ".*_test.go" },
+			},
+		})
+	end,
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
-  command = "set nu",
+	command = "set nu",
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.go",
-  callback = function()
-    local params = vim.lsp.util.make_range_params()
-    params.context = { only = { "source.organizeImports" } }
-    -- buf_request_sync defaults to a 1000ms timeout. Depending on your
-    -- machine and codebase, you may want longer. Add an additional
-    -- argument after params if you find that you have to write the file
-    -- twice for changes to be saved.
-    -- E.g., vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 3000)
-    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
-    for cid, res in pairs(result or {}) do
-      for _, r in pairs(res.result or {}) do
-        if r.edit then
-          local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
-          vim.lsp.util.apply_workspace_edit(r.edit, enc)
-        end
-      end
-    end
-    vim.lsp.buf.format({ async = false })
-  end,
+	pattern = "*.go",
+	callback = function()
+		local params = vim.lsp.util.make_range_params()
+		params.context = { only = { "source.organizeImports" } }
+		-- buf_request_sync defaults to a 1000ms timeout. Depending on your
+		-- machine and codebase, you may want longer. Add an additional
+		-- argument after params if you find that you have to write the file
+		-- twice for changes to be saved.
+		-- E.g., vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 3000)
+		local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
+		for cid, res in pairs(result or {}) do
+			for _, r in pairs(res.result or {}) do
+				if r.edit then
+					local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+					vim.lsp.util.apply_workspace_edit(r.edit, enc)
+				end
+			end
+		end
+		vim.lsp.buf.format({ async = false })
+	end,
 })
 
 vim.api.nvim_create_autocmd("CursorHold", {
-  callback = function()
-    vim.diagnostic.open_float()
-  end,
+	callback = function()
+		vim.diagnostic.open_float()
+	end,
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  pattern = { "*.py" },
-  desc = "Auto-format Python files after saving",
-  callback = function()
-    local fileName = vim.api.nvim_buf_get_name(0)
-    vim.cmd(":silent !black --preview --quiet " .. fileName)
-    --vim.cmd(":silent !isort --profile black --float-to-top --quiet " .. fileName)
-    vim.cmd(":silent !isort --profile black --quiet " .. fileName)
-    --vim.cmd(":silent !docformatter --in-place --black " .. fileName)
-  end,
-  --group = autocmd_group,
+	pattern = { "*.py" },
+	desc = "Auto-format Python files after saving",
+	callback = function()
+		local fileName = vim.api.nvim_buf_get_name(0)
+		vim.cmd(":silent !black --preview --quiet " .. fileName)
+		--vim.cmd(":silent !isort --profile black --float-to-top --quiet " .. fileName)
+		vim.cmd(":silent !isort --profile black --quiet " .. fileName)
+		--vim.cmd(":silent !docformatter --in-place --black " .. fileName)
+	end,
+	--group = autocmd_group,
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  pattern = { "*.sh" },
-  desc = "Auto-format shell files after saving",
-  callback = function()
-    local fileName = vim.api.nvim_buf_get_name(0)
-    vim.cmd(":silent !shfmt -i 4 -w `readlink -f " .. fileName .. "`")
-    vim.cmd(":silent edit")
-  end,
+	pattern = { "*.sh" },
+	desc = "Auto-format shell files after saving",
+	callback = function()
+		local fileName = vim.api.nvim_buf_get_name(0)
+		vim.cmd(":silent !shfmt -i 4 -w `readlink -f " .. fileName .. "`")
+		vim.cmd(":silent edit")
+	end,
 })
