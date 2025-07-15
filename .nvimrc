@@ -504,4 +504,4 @@ let g:winresizer_vert_resize = 5
 "    lua require("scrollbar").setup()
 "endif
 
-set timeout timeoutlen=100
+set timeout timeoutlen=500
