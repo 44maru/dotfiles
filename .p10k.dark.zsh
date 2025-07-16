@@ -30,7 +30,7 @@
   [[ $ZSH_VERSION == (5.<1->*|<6->.*) ]] || return
 
   # user
-  typeset -g POWERLEVEL9K_USER_FOREGROUND=46
+  typeset -g POWERLEVEL9K_USER_FOREGROUND=164
   typeset -g POWERLEVEL9K_HOST_FOREGROUND=51
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
