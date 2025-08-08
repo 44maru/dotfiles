@@ -303,12 +303,6 @@ bindkey '^]' fzf-cd # ctrl + ]
 #export PATH="$HOME/.nodebrew/current/bin:$PATH}"
 #export NODEBREW_ROOT="$HOME/.linuxbrew/var/nodebrew"
 
-#----------------------
-# nodejs
-#----------------------
-export NVM_DIR="$(readlink -f $HOME)/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #----------------------
 # asdf
@@ -345,6 +339,14 @@ if [ -d ~/.zplug ]; then
   # fzf-tab
   #-----------------------------
   zplug "Aloxaf/fzf-tab", defer:2
+
+  #----------------------
+  # zsh-nvm
+  #----------------------
+  export NVM_DIR="$(readlink -f $HOME)/.nvm"
+  export NVM_COMPLETION=true
+  export NVM_LAZY_LOAD=true
+  zplug "lukechilds/zsh-nvm"
 
   #-----------------------------
   # zsh-vi-mode
