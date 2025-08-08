@@ -5,15 +5,15 @@ alias ls='ls -CF --color'
 alias grep='grep --color'
 
 if type nvim &>/dev/null; then
-    alias vimzsh='nvim ~/.zshrc'
+    alias vimzsh='nvim ~/.zshenv'
 else
-    alias vimzsh='vim ~/.zshrc'
+    alias vimzsh='vim ~/.zshenv'
 fi
 
 # tmux起動時にsession名を指定できるようにする
 alias tmuxnew='tmux new-session -s'
 
-alias sourcezsh='source ~/.zshrc'
+alias sourcezsh='source ~/.zshenv'
 
 # watchコマンドにalias登録したコマンドを利用できるように、watchコマンドにスペースを追加したaliasを登録
 alias watch='watch '
