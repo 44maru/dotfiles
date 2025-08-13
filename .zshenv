@@ -1,3 +1,5 @@
+source ~/.zshrc_before
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -406,8 +408,10 @@ fi
 #----------------------
 # powerlevel10k
 #----------------------
-[[ -f ~/.powerlevel10k/powerlevel10k.zsh-theme ]] && source ~/.powerlevel10k/powerlevel10k.zsh-theme
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+if ! "${IGNORE_P10K}"; then
+  [[ -f ~/.powerlevel10k/powerlevel10k.zsh-theme ]] && source ~/.powerlevel10k/powerlevel10k.zsh-theme
+  [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+fi
 
 source ~/.aliasrc
 source ~/.zshrc_func
