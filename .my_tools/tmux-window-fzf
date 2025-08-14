@@ -1,9 +1,8 @@
 #!/bin/bash
 
-if [ -n "$TMUX" ]; then
-    SELECTED="$(tmux list-windows -a | fzf-tmux -d 100 | sed 's/: .*//')"
-    if [ -n "$SELECTED" ]; then
-        echo "$SELECTED" | xargs tmux switch-client -t
-        echo "$SELECTED" | xargs tmux select-window -t
-    fi
+# --previewを使うとそのあとのtmux switch-clientコマンドが遅くなる時がある？
+#SELECTED="$(tmux list-windows -a | fzf-tmux -p -w 80% -m --preview 'echo {} | sed "s/: .+$//" | xargs -I{} tmux capture-pane -ep -t {}' | sed 's/: .*//')"
+SELECTED="$(tmux list-windows -a | fzf-tmux -p -w 80% -m | sed 's/: .*//')"
+if [ -n "${SELECTED}" ]; then
+  echo "${SELECTED}" | xargs tmux switch-client -t
 fi
