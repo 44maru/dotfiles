@@ -140,6 +140,12 @@ function installlemonade() {
     rm -f lemonade_linux_amd64.tar.gz
 }
 
+function install_browser_sync() {
+    npm install -g browser-sync
+    # memo
+    # browser-sync start --server --port 44445 --files *.html
+}
+
 function kubectl_syslog() {
   local node=$1
 
