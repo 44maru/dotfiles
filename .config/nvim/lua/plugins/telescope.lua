@@ -24,5 +24,12 @@ return {
 			desc = "Telescope lsp_implementations",
 			mode = { "n" },
 		},
+		{
+			"<C-k>",
+			function()
+				require("telescope.builtin").lsp_definitions({ reuse_win = true })
+			end,
+			desc = "LSP definitions (Telescope)",
+		},
 	},
 }
