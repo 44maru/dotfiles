@@ -100,7 +100,7 @@ bindkey "^[[1~" vi-beginning-of-line # Home
 bindkey "^[[4~" vi-end-of-line # End
 bindkey "^[[2~" beep # Insert
 bindkey "^[[3~" delete-char # Del
-bindkey -e
+#bindkey -e
 
 #-----------------------------------------------
 # Get git file remote url
@@ -251,7 +251,8 @@ zle -N __cd_up;   bindkey '^o' __cd_up
     export TMUX_FZF_OPTIONS="-p -w 80% -h 80% -m"
     export TMUX_FZF_PREVIEW=1
     # ctrl+space(ctrl+v -> ctrl+spaceで入力)でfzf-cd-widgetを実行
-    bindkey '^@' fzf-cd-widget
+    #bindkey '^@' fzf-cd-widget
+    bindkey '^T' fzf-cd-widget
 
     [ -f /usr/bin/ag ] && {
         export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
@@ -365,6 +366,15 @@ if [ -d ~/.zplug ]; then
     esac
     zle reset-prompt
   }
+
+  # zsh-vi-modeが初期化を終えた後に呼ばれるフック
+  # ctrl+R, ctrl+Wのキーバインドがzsh-vi-modeで上書きされるてしまうので、
+  # 再設定する
+  function zvm_after_init() {
+    bindkey '^R' fzf-history-widget
+    bindkey '^W' peco-cdr
+  }
+
 
   zle -N zle-keymap-select
 
