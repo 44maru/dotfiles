@@ -401,6 +401,7 @@ ${ZVM_MODE_INDICATOR} %B%{${fg[red]}%}[%n%{${fg[blue]}%}@%m${WINDOW:+":$WINDOW"}
   # プラグインの読み込み
   zplug load
 
+  zvm_bindkey vicmd '^j' accept-line
   zvm_bindkey vicmd '^]' fzf-cd
   zvm_bindkey viins '^]' fzf-cd
   zvm_bindkey vicmd '^o' __cd_up
