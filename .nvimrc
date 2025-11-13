@@ -223,7 +223,7 @@ inoremap <C-o> <ESC>o
 " ------------------
 " Quick Run
 " ------------------
-nnoremap <silent> <Leader>q :QuickRun
+"nnoremap <silent> <Leader>q :QuickRun
 nnoremap <silent> <Leader>e <C-w><C-w>:q<CR>
 "let g:quickrun_config={'*': {'split': ''}}
 set splitbelow
