@@ -320,7 +320,9 @@ ASDF_DIR=$HOME/.asdf
 #----------------------
 # zplug start
 #----------------------
-if [ -d ~/.zplug ]; then
+# 非対話シェルではzplugはロードできないので-o interactiveの条件をつけている
+# (非対話シェル起動時のcommand not found等のエラー抑制)
+if [[ -d ~/.zplug && -o interactive ]]; then
   source ~/.zplug/init.zsh
 
   #-----------------------------
