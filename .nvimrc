@@ -71,6 +71,11 @@ else
     set mouse=
 endif
 
+"==================================
+" fileの中身をクリップボードコピー
+"==================================
+nnoremap <expr> <Leader>1 ':split<CR>:lcd %:h<CR>:!cat ' . expand("%") . ' \| clipboard<CR>:q<CR>'
+
 "===============================================
 " get gitlab url of current edit file
 "===============================================
