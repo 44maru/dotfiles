@@ -33,6 +33,7 @@
     #diff-so-fancy = true
     keep-plus-minus-markers = true
     #minus-emph-style = "bold white 89"
+    plus-style = "syntax #004400"
     plus-emph-style = "bold white 21"
     hunk-header-style = "omit"
     line-numbers = true
