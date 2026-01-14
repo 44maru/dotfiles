@@ -118,10 +118,15 @@ function install_utility_modules() {
     install_zplug
     install_p10k
     install_tmux_plugin
+    install_jnv
     #install_linuxbrew
 
     # https://askubuntu.com/questions/1290262/unable-to-install-bat-error-trying-to-overwrite-usr-crates2-json-which
     # sudo apt install --fix-broken -o Dpkg::Options::="--force-overwrite" ripgrep bat
+}
+
+function install_jnv() {
+    curl --proto '=https' --tlsv1.2 -LsSf https://github.com/ynqa/jnv/releases/download/v0.6.1/jnv-installer.sh | sh
 }
 
 function install_p10k() {
