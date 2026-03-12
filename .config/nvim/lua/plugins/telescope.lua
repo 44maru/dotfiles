@@ -9,6 +9,12 @@ return {
 		},
 		{ "<leader>G", "<cmd>Telescope live_grep<cr>", desc = "Grep files (Telescope)" },
 		{
+			-- 隠しファイルも対象にgrep
+			"<leader>h",
+			"<cmd>Telescope live_grep vimgrep_arguments={'rg','--color=never','--no-heading','--with-filename','--line-number','--column','--smart-case','--hidden'}<cr>",
+			desc = "Telescope live_grep vimgrep_arguments={'rg','--color=never','--no-heading','--with-filename','--line-number','--column','--smart-case','--hidden'}",
+		},
+		{
 			-- 下記はなぜかleaderをつけないと利かない
 			"gr",
 			"<cmd>Telescope lsp_references<cr>",
