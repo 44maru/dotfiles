@@ -24,7 +24,7 @@ vim.keymap.set("n", "<M-m>", "<cmd>Maximize<CR>")
 vim.keymap.set("n", "<Leader>s", "<cmd>lua require('flash').jump()<CR>")
 vim.keymap.set("n", "<Leader>n", "<cmd>Neotree toggle<CR>")
 vim.keymap.set("n", "<Leader>w", "<cmd>WinResizerStartResize<cr>")
-vim.keymap.set("n", "<M-o>", "<cmd>SymbolsOutline<cr>")
+vim.keymap.set("n", "<M-o>", "<cmd>AerialToggle<cr>")
 --vim.keymap.set("n", "?", "<Cmd>lua require('which-key').show(' ', {mode = 'v', auto = true})<CR>")
 -- renameに関してはデフォルトで以下のkeymapが設定されている
 -- { "<leader>cr", vim.lsp.buf.rename, desc - "Rename", has = "rename" }
