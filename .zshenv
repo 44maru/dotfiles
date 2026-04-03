@@ -83,6 +83,9 @@ autoload colors; colors
 
 # delete scp auto completion
 zstyle ':completion:*:complete:scp:*:files' command command -
+# ssh/scp時のhost補完がlocalサーバになってしまうのを防ぐ
+# ただし、WSL上では逆に↓の設定があると補完自体が効かないことが確認されている
+zstyle ':completion:*:(ssh|scp):*' hosts off
 
 #-----------------------------------------------
 # vi-keys
