@@ -1,5 +1,41 @@
 return {
 	"nvim-telescope/telescope.nvim",
+	-- live grep時に長いファイルパスが見切れないように以下を設定
+	--   * popup windowサイズの変更
+	--   * ctrl+pでpreview表示のON/OFF
+	--   * パスがおさまらない場合に先頭のDIRから１文字に省略
+	opts = {
+		defaults = {
+			layout_config = {
+				width = 0.95,
+				height = 0.9,
+				preview_width = 0.4,
+			},
+			mappings = {
+				i = { ["<C-p>"] = require("telescope.actions.layout").toggle_preview },
+				n = { ["<C-p>"] = require("telescope.actions.layout").toggle_preview },
+			},
+			path_display = function(_, path)
+				local sep = "/"
+				local parts = {}
+				for part in path:gmatch("[^" .. sep .. "]+") do
+					table.insert(parts, part)
+				end
+				if #parts <= 1 then
+					return path
+				end
+				local max_width = math.floor(vim.o.columns * 0.95) - 15
+				local result = table.concat(parts, sep)
+				local i = 1
+				while #result > max_width and i < #parts do
+					parts[i] = parts[i]:sub(1, 1)
+					result = table.concat(parts, sep)
+					i = i + 1
+				end
+				return result
+			end,
+		},
+	},
 	keys = {
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files (Telescope)" },
 		{
