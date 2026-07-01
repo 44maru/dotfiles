@@ -37,7 +37,12 @@ return {
 		},
 	},
 	keys = {
-		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files (Telescope)" },
+		{
+			-- .gitignore 登録ファイルも対象にする (--no-ignore-vcs)。.git/ は隠しディレクトリなので対象外
+			"<leader>ff",
+			"<cmd>Telescope find_files find_command=rg,--files,--no-ignore-vcs<cr>",
+			desc = "Find Files including gitignored (Telescope)",
+		},
 		{
 			"<leader>FF",
 			"<cmd>Telescope find_files find_command=rg,--hidden,--files<cr>",
