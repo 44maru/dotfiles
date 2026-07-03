@@ -429,6 +429,15 @@ if ! "${IGNORE_P10K}"; then
   [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 fi
 
+export PATH=${HOME}/.local/jre/bin:${PATH}
+
+# 端末が 24bit truecolor 対応であることを宣言する。
+# mintty で tmux 3.4 内の nvim を起動すると、 nvim の truecolor 検出プローブ
+# (ESC P $ q m ESC \) を tmux が 0 サイズ sixel と誤認し fatal→サーバ全死する不具合があった。
+# COLORTERM=truecolor があると nvim はこのプローブを送らないため回避できる(sixel も温存)。
+# 使用端末(mintty/kitty/putty)はいずれも truecolor 対応なので無条件設定で問題ない。
+export COLORTERM=truecolor
+
 source ~/.aliasrc
 source ~/.zshrc_func
 source ~/.zshrc_after
